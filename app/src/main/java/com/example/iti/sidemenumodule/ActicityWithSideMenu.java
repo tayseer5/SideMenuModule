@@ -2,11 +2,9 @@ package com.example.iti.sidemenumodule;
 
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 import br.liveo.interfaces.OnItemClickListener;
@@ -37,8 +35,8 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
         mHelpLiveo.add(getString(R.string.jop_search), R.drawable.ic_https_black_24dp);
         mHelpLiveo.add(getString(R.string.log_out), R.drawable.ic_https_black_24dp);
         mHelpLiveo.addSeparator();
-        with(this) // default theme is dark
-                .startingPosition(1) //Starting position in the list
+        with(this) // default theme is dark ,R.color.nliveo_black
+                .startingPosition(0) //Starting position in the list
                 .addAllHelpItem(mHelpLiveo.getHelp())
                 .footerItem(R.string.settings, R.drawable.ic_android_black_24dp)
                 .footerSecondItem(R.string.about, R.drawable.ic_android_black_24dp)
