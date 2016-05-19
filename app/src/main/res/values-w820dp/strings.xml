@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="inbox">inbox</string>
+    <string name="homepage">الصفحه الرئيسيه</string>
+    <string name="dash_board">متابعة أعمالك</string>
+    <string name="post_project">أكتب طلباتك</string>
+    <string name="jop_search">البحث عن وظيف</string>
+    <string name="log_out">تسجيل خروج</string>
+    <string name="language">اللغه</string>
+    <string name="about">عننا</string>
+    <string name="settings">الاعداد</string>
+</resources>

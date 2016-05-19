@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SideMenuModule</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">الأعداد</string>
+    <string name="settings">الاعداد</string>
+    <string name="title_activity_main_activity2">MainActivity2Activity</string>
+    <string name="homepage">الصفحه الرئيسيه</string>
+    <string name="dash_board">متابعة أعمالك</string>
+    <string name="post_project">أكتب طلباتك</string>
+    <string name="customer_project">مشروعاتك</string>
+    <string name="jop_search">البحث عن وظيف</string>
+    <string name="log_out">تسجيل خروج</string>
+    <string name="language">اللغه</string>
+    <string name="about">عننا</string>
+</resources>
