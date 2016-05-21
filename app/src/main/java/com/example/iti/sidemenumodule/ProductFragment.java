@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * Created by Ahmed_telnet on 5/21/2016.
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 public class ProductFragment extends Fragment {
     View rootView;
     FragmentActivity myContext;
+    int categoryID;
 
     public ProductFragment() {
         // Required empty public constructor
@@ -22,7 +24,7 @@ public class ProductFragment extends Fragment {
 
     public ProductFragment(int id) {
 
-
+        categoryID=id;
     }
 
     @Override
@@ -35,7 +37,9 @@ public class ProductFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       // rootView = inflater.inflate(R.layout.product_about, container, false);
+        rootView = inflater.inflate(R.layout.product_fragment, container, false);
+        TextView textView=(TextView) rootView.findViewById(R.id.textView2);
+        textView.setText(categoryID+"");
         return rootView;
     }
 

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -115,16 +116,18 @@ public class MainFragment extends Fragment {
                     selectedItemId = MyData.id_[i];
                 }
             }
-            //moveToProductFragment(selectedItemId);
+            moveToProductFragment(selectedItemId);
 
         }
 
-//        private void moveToProductFragment(int selectedItemId) {
-//            ProductFragment productFragment= new ProductFragment(selectedItemId);
-//            FragmentTransaction transaction = myContext.getSupportFragmentManager().beginTransaction();
-//            transaction.replace(R.id.group, productFragment, "A");
-//            transaction.commit();
-//        }
+        private void moveToProductFragment(int selectedItemId) {
+            Fragment mFragment=null;
+            FragmentManager mFragmentManager = myContext.getSupportFragmentManager();
+            mFragment = new ProductFragment(selectedItemId);
+        if (mFragment != null){
+            mFragmentManager.beginTransaction().replace(R.id.container, mFragment).commit();
+        }
+        }
     }
 
 
