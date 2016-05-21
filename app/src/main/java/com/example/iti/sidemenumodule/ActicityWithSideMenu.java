@@ -1,8 +1,13 @@
 package com.example.iti.sidemenumodule;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -17,13 +22,7 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
     private HelpLiveo mHelpLiveo;
     @Override
     public void onInt(Bundle bundle) {
-        Log.e("in init","yes");
-//This is the Header of side menu
-        this.userName.setText("تيسير ابراهيم انور");
-        this.userEmail.setText("tayseer.anwar92@gmail.com");
-        this.userPhoto.setImageResource(R.drawable.ic_rudsonlive);
-        this.userBackground.setImageResource(R.drawable.ic_user_background_first);
-        this.userBackground.setColorFilter(Color.GRAY, PorterDuff.Mode.DARKEN);
+        Log.e("in init", "yes");
 
 //Menu Elements
         mHelpLiveo = new HelpLiveo();
@@ -33,9 +32,25 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
         mHelpLiveo.add(getString(R.string.post_project), R.drawable.ic_https_black_24dp);
         mHelpLiveo.add(getString(R.string.customer_project), R.drawable.ic_https_black_24dp);
         mHelpLiveo.add(getString(R.string.jop_search), R.drawable.ic_https_black_24dp);
-        mHelpLiveo.add(getString(R.string.log_out), R.drawable.ic_https_black_24dp);
+        //is login
+        if(IsNotLogin())
+        {
+            mHelpLiveo.add(getString(R.string.sigin_in), R.drawable.ic_https_black_24dp);
+        }
+        else {
+            //This is the Header of side menu
+            this.userName.setText("تيسير ابراهيم انور");
+            this.userEmail.setText("tayseer.anwar92@gmail.com");
+            this.userPhoto.setImageResource(R.drawable.ic_rudsonlive);
+            this.userBackground.setImageResource(R.drawable.ic_user_background_first);
+            this.userBackground.setColorFilter(Color.GRAY, PorterDuff.Mode.DARKEN);
+            mHelpLiveo.add(getString(R.string.log_out), R.drawable.ic_https_black_24dp);
+
+        }
+Resources.Theme x =with(this).getTheme();
+        Log.e("the theam",x+"");
         mHelpLiveo.addSeparator();
-        with(this) // default theme is dark ,R.color.nliveo_black
+        with(this,1) // default theme is dark ,R.color.nliveo_black
                 .startingPosition(0) //Starting position in the list
                 .addAllHelpItem(mHelpLiveo.getHelp())
                 .footerItem(R.string.settings, R.drawable.ic_android_black_24dp)
@@ -44,6 +59,7 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
                 .setOnPrepareOptionsMenu(onPrepare)
                 .setOnClickFooter(onClickFooter)
                 .build();
+
 
     }
     private View.OnClickListener onClickFooter = new View.OnClickListener() {
@@ -69,6 +85,59 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
 
     @Override
     public void onItemClick(int i) {
-        Log.e("clicked", i + "");
+        Log.e("in on click",i+"");
+       if(i==5)
+       {
+
+           if (IsNotLogin())
+           {
+               Intent intent = new Intent(this,RegistrationActivity.class);
+               startActivity(intent);
+               Log.e("in if","in if");
+           }
+           else
+           {
+               Log.e("in else","in else");
+               //remove shared prefrence
+           }
+
+       }
+    }
+    private boolean IsNotLogin()
+    {
+        SharedPreferences sharedpreferences = getSharedPreferences("loginPrefrence", Context.MODE_PRIVATE);
+        String isLogin = sharedpreferences.getString("userName","Not login");
+        return isLogin.contentEquals("Not login");
+
+
+    }
+
+    @Override
+    protected void onStop() {
+        Log.e("onStop","onStop");
+        super.onStop();
+    }
+
+    @Override
+    protected void onPostResume() {
+        Log.e("onPostResume","onPostResume");
+        super.onPostResume();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.e("onDestroy","onDestroy");
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        Log.e("onRestart","onRestart");
+        if(!IsNotLogin())
+        {
+            Log.e("reload","on Int");
+
+        }
+        super.onRestart();
     }
 }

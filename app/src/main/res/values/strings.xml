@@ -13,4 +13,6 @@
     <string name="log_out">تسجيل خروج</string>
     <string name="language">اللغه</string>
     <string name="about">عننا</string>
+    <string name="title_activity_registration">RegistrationActivity</string>
+    <string name="sigin_in">تسجيل الدخول</string>
 </resources>
