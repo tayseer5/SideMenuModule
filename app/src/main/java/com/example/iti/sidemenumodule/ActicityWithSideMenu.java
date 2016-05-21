@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.Menu;
@@ -48,7 +49,7 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
 
         }
 Resources.Theme x =with(this).getTheme();
-        Log.e("the theam",x+"");
+        Log.e("the theam", x + "");
         mHelpLiveo.addSeparator();
         with(this,1) // default theme is dark ,R.color.nliveo_black
                 .startingPosition(0) //Starting position in the list
@@ -83,25 +84,39 @@ Resources.Theme x =with(this).getTheme();
         }
     };
 
+
     @Override
-    public void onItemClick(int i) {
-        Log.e("in on click",i+"");
-       if(i==5)
-       {
+    public void onItemClick(int position) {
+        Fragment mFragment=null;
+        FragmentManager mFragmentManager = getSupportFragmentManager();
 
-           if (IsNotLogin())
-           {
-               Intent intent = new Intent(this,RegistrationActivity.class);
-               startActivity(intent);
-               Log.e("in if","in if");
-           }
-           else
-           {
-               Log.e("in else","in else");
-               //remove shared prefrence
-           }
+        switch (position){
+            case 2:
+                //mFragment = new ViewPagerFragment();
+                break;
+            case 5:
+                if (IsNotLogin())
+                {
+                    Intent intent = new Intent(this,RegistrationActivity.class);
+                    startActivity(intent);
+                    Log.e("in if","in if");
+                }
+                else
+                {
+                    Log.e("in else","in else");
+                    //remove shared prefrence
+                }
+                break;
+            default:
+                mFragment = MainFragment.newInstance(mHelpLiveo.get(position).getName());
+                break;
+        }
 
-       }
+        if (mFragment != null){
+            mFragmentManager.beginTransaction().replace(R.id.container, mFragment).commit();
+        }
+
+        setElevationToolBar(position != 2 ? 15 : 0);
     }
     private boolean IsNotLogin()
     {
