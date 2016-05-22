@@ -3,4 +3,8 @@
     <color name="highlight_color_filter">#A5FF0000</color>
     <color name="grey_300">#E0E0E0</color>
     <color name="color_white">#fefefe</color>
+    <color name="light_blue_100">#B3E5FC</color>
+    <color name="light_blue_300">#4FC3F7</color>
+    <color name="light_blue_500">#03A9F4</color>
+    <color name="light_blue_900">#01579B</color>
 </resources>
