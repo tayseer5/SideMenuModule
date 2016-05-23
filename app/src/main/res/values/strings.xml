@@ -15,4 +15,5 @@
     <string name="about">عننا</string>
     <string name="title_activity_registration">RegistrationActivity</string>
     <string name="sigin_in">تسجيل الدخول</string>
+    <string name="defaultpassword"><a href="http://stackoverflow.com/questions/9852184/android-textview-hyperlink?rq=1">google stack overflow</a></string>
 </resources>
