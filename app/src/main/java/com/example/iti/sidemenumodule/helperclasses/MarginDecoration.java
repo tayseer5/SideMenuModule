@@ -1,9 +1,11 @@
-package com.example.iti.sidemenumodule;
+package com.example.iti.sidemenumodule.helperclasses;
 
 import android.content.Context;
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import com.example.iti.sidemenumodule.R;
 
 public class MarginDecoration extends RecyclerView.ItemDecoration {
   private int margin;

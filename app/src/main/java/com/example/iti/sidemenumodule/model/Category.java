@@ -1,4 +1,4 @@
-package com.example.iti.sidemenumodule;
+package com.example.iti.sidemenumodule.model;
 
 
 public class Category {

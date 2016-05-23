@@ -1,4 +1,4 @@
-package com.example.iti.sidemenumodule;
+package com.example.iti.sidemenumodule.view;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.iti.sidemenumodule.R;
+import com.example.iti.sidemenumodule.model.Category;
 
 import java.util.ArrayList;
 

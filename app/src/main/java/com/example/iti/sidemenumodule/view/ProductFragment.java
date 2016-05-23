@@ -1,4 +1,4 @@
-package com.example.iti.sidemenumodule;
+package com.example.iti.sidemenumodule.view;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,15 +7,18 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.iti.sidemenumodule.R;
+import com.example.iti.sidemenumodule.helperclasses.MarginDecoration;
+import com.example.iti.sidemenumodule.helperclasses.MyData;
+import com.example.iti.sidemenumodule.model.Category;
 
 import java.util.ArrayList;
 
@@ -53,7 +56,7 @@ public class ProductFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new MarginDecoration(myContext));
         recyclerView.setLayoutManager(new GridLayoutManager(myContext, 3));
-        recyclerView.setAdapter(new NumberedAdapter(30));
+      //  recyclerView.setAdapter(new NumberedAdapter(30));
         //layoutManager = new LinearLayoutManager(myContext);
         //recyclerView.setLayoutManager(layoutManager);
         //recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -69,8 +72,8 @@ public class ProductFragment extends Fragment {
 
         removedItems = new ArrayList<Integer>();
 
-//        adapter = new CustomAdapter(myContext, data);
-//        recyclerView.setAdapter(adapter);
+        adapter = new CustomAdapter(myContext, data);
+        recyclerView.setAdapter(adapter);
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT ));
         return rootView;
     }

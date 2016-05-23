@@ -39,6 +39,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="100dp"
             android:textSize="26dp"
+            android:textAlignment="center"
             android:textColor="#fff"
             android:textStyle="bold"
             android:elevation="8dp"

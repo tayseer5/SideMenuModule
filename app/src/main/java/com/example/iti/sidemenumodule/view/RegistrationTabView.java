@@ -1,4 +1,4 @@
-package com.example.iti.sidemenumodule;
+package com.example.iti.sidemenumodule.view;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.iti.sidemenumodule.R;
 
 /**
  * Created by ITI on 20/05/2016.

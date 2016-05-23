@@ -1,4 +1,4 @@
-package com.example.iti.sidemenumodule;
+package com.example.iti.sidemenumodule.controller;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,10 @@ import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+
+import com.example.iti.sidemenumodule.view.MainFragment;
+import com.example.iti.sidemenumodule.R;
+import com.example.iti.sidemenumodule.view.RegistrationActivity;
 
 import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
@@ -33,8 +37,6 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
         mHelpLiveo.add(getString(R.string.post_project), R.drawable.ic_https_black_24dp);
         mHelpLiveo.add(getString(R.string.customer_project), R.drawable.ic_https_black_24dp);
         mHelpLiveo.add(getString(R.string.jop_search), R.drawable.ic_https_black_24dp);
-
-
         //is login
         if(IsNotLogin())
         {
@@ -50,6 +52,8 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
             mHelpLiveo.add(getString(R.string.log_out), R.drawable.ic_https_black_24dp);
 
         }
+Resources.Theme x =with(this).getTheme();
+        Log.e("the theam", x + "");
         mHelpLiveo.addSeparator();
         with(this,1) // default theme is dark ,R.color.nliveo_black
                 .startingPosition(0) //Starting position in the list
@@ -121,7 +125,7 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
     private boolean IsNotLogin()
     {
         SharedPreferences sharedpreferences = getSharedPreferences("loginPrefrence", Context.MODE_PRIVATE);
-        String isLogin = sharedpreferences.getString("mail","Not login");
+        String isLogin = sharedpreferences.getString("userName","Not login");
         return isLogin.contentEquals("Not login");
 
 
