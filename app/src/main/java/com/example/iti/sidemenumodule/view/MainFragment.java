@@ -114,7 +114,7 @@ public class MainFragment extends Fragment {
         private void moveToProductFragment(int selectedItemId) {
             Fragment mFragment = null;
             FragmentManager mFragmentManager = myContext.getSupportFragmentManager();
-            mFragment = new ProductFragment(selectedItemId);
+            mFragment = new PortfoliosFragment(selectedItemId);
             if (mFragment != null) {
                 mFragmentManager.beginTransaction().replace(R.id.container, mFragment).commit();
             }

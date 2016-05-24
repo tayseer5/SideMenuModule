@@ -14,22 +14,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.iti.sidemenumodule.R;
+import com.example.iti.sidemenumodule.datamanger.DataManger;
 import com.example.iti.sidemenumodule.helperclasses.MarginDecoration;
 import com.example.iti.sidemenumodule.helperclasses.MyData;
 import com.example.iti.sidemenumodule.model.Category;
+import com.example.iti.sidemenumodule.model.Portfolio;
 
 import java.util.ArrayList;
 
 /**
  * Created by Ahmed_telnet on 5/21/2016.
  */
-public class ProductFragment extends Fragment {
+public class PortfoliosFragment extends Fragment {
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
-    private static ArrayList<Category> data;
+    private static ArrayList<Portfolio> data;
     static View.OnClickListener myOnClickListener;
     private static ArrayList<Integer> removedItems;
     FragmentActivity myContext;
@@ -37,8 +40,8 @@ public class ProductFragment extends Fragment {
     int catId;
 
 
-    public static ProductFragment newInstance(String text,int id){
-        ProductFragment mFragment = new ProductFragment(id);
+    public static PortfoliosFragment newInstance(String text,int id){
+        PortfoliosFragment mFragment = new PortfoliosFragment(id);
         Bundle mBundle = new Bundle();
         mBundle.putString(TEXT_FRAGMENT, text);
         mFragment.setArguments(mBundle);
@@ -61,30 +64,20 @@ public class ProductFragment extends Fragment {
         //recyclerView.setLayoutManager(layoutManager);
         //recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        data = new ArrayList<Category>();
-        for (int i = 0; i < MyData.nameArray.length; i++) {
-            data.add(new Category(
-                    MyData.nameArray[i],
-                    MyData.id_[i],
-                    MyData.drawableArray[i]
-            ));
-        }
-
-        removedItems = new ArrayList<Integer>();
-
-        adapter = new CustomAdapter(myContext, data);
+        data=DataManger.getPortfolios(catId);
+        adapter = new PortfolioCustomAdapter(myContext, data);
         recyclerView.setAdapter(adapter);
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT ));
         return rootView;
     }
 
 
-    public ProductFragment(int id)
+    public PortfoliosFragment(int id)
     {
         catId=id;
     }
 
-    public ProductFragment()
+    public PortfoliosFragment()
     {}
     @Override
     public void onAttach(Activity activity) {
@@ -115,28 +108,8 @@ public class ProductFragment extends Fragment {
 
         private void removeItem(View v) {
             int selectedItemPosition = recyclerView.getChildPosition(v);
-            RecyclerView.ViewHolder viewHolder
-                    = recyclerView.findViewHolderForPosition(selectedItemPosition);
-            TextView textViewName
-                    = (TextView) viewHolder.itemView.findViewById(R.id.textViewName);
-            String selectedName = (String) textViewName.getText();
-            int selectedItemId = -1;
-            for (int i = 0; i < MyData.nameArray.length; i++) {
-                if (selectedName.equals(MyData.nameArray[i])) {
-                    selectedItemId = MyData.id_[i];
-                }
-            }
-            moveToProductFragment(selectedItemId);
-
-        }
-
-        private void moveToProductFragment(int selectedItemId) {
-            Fragment mFragment=null;
-            FragmentManager mFragmentManager = myContext.getSupportFragmentManager();
-            mFragment = new ProductFragment(selectedItemId);
-            if (mFragment != null){
-                mFragmentManager.beginTransaction().replace(R.id.container, mFragment).commit();
-            }
+//            Toast.makeText(
+//                    myContext, selectedItemPosition, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -147,14 +120,4 @@ public class ProductFragment extends Fragment {
         return true;
     }
 
-    private void addRemovedItemToList() {
-        int addItemAtListPosition = 3;
-        data.add(addItemAtListPosition, new Category(
-                MyData.nameArray[removedItems.get(0)],
-                MyData.id_[removedItems.get(0)],
-                MyData.drawableArray[removedItems.get(0)]
-        ));
-        adapter.notifyItemInserted(addItemAtListPosition);
-        removedItems.remove(0);
     }
-}
