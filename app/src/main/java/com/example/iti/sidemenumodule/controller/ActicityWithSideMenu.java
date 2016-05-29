@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 
+import com.example.iti.sidemenumodule.view.EmployeeListFragment;
 import com.example.iti.sidemenumodule.view.MainFragment;
 import com.example.iti.sidemenumodule.R;
 import com.example.iti.sidemenumodule.view.RegistrationActivity;
@@ -97,6 +98,9 @@ Resources.Theme x =with(this).getTheme();
         switch (position){
             case 2:
                 //mFragment = new ViewPagerFragment();
+                break;
+            case 4:
+                mFragment = new EmployeeListFragment();
                 break;
             case 5:
                 if (IsNotLogin())
