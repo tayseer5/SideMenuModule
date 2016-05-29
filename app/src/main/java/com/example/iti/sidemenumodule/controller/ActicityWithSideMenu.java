@@ -16,6 +16,7 @@ import android.view.View;
 import com.example.iti.sidemenumodule.view.MainFragment;
 import com.example.iti.sidemenumodule.R;
 import com.example.iti.sidemenumodule.view.RegistrationActivity;
+import com.example.iti.sidemenumodule.view.WorkStreamFragment;
 
 import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
@@ -37,7 +38,11 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
         mHelpLiveo.add(getString(R.string.post_project), R.drawable.ic_https_black_24dp);
         mHelpLiveo.add(getString(R.string.customer_project), R.drawable.ic_https_black_24dp);
         mHelpLiveo.add(getString(R.string.jop_search), R.drawable.ic_https_black_24dp);
-        //is login
+        mHelpLiveo.add(getString(R.string.search_about_handCraft), R.drawable.ic_https_black_24dp);
+        mHelpLiveo.add(getString(R.string.settings), R.drawable.ic_android_black_24dp);
+        mHelpLiveo.add(getString(R.string.about), R.drawable.ic_android_black_24dp);
+        mHelpLiveo.add(getString(R.string.log_out), R.drawable.ic_android_black_24dp);
+        //is not login
         if(IsNotLogin())
         {
             mHelpLiveo.add(getString(R.string.sigin_in), R.drawable.ic_https_black_24dp);
@@ -49,20 +54,17 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
             this.userPhoto.setImageResource(R.drawable.ic_rudsonlive);
             this.userBackground.setImageResource(R.drawable.ic_user_background_first);
             this.userBackground.setColorFilter(Color.GRAY, PorterDuff.Mode.DARKEN);
-            mHelpLiveo.add(getString(R.string.log_out), R.drawable.ic_https_black_24dp);
+
 
         }
 Resources.Theme x =with(this).getTheme();
         Log.e("the theam", x + "");
-        mHelpLiveo.addSeparator();
         with(this,1) // default theme is dark ,R.color.nliveo_black
                 .startingPosition(0) //Starting position in the list
                 .addAllHelpItem(mHelpLiveo.getHelp())
-                .footerItem(R.string.settings, R.drawable.ic_android_black_24dp)
-                .footerSecondItem(R.string.about, R.drawable.ic_android_black_24dp)
                 .setOnClickUser(onClickPhoto)
                 .setOnPrepareOptionsMenu(onPrepare)
-                .setOnClickFooter(onClickFooter)
+                .removeFooter()
                 .build();
 
 
@@ -96,7 +98,7 @@ Resources.Theme x =with(this).getTheme();
 
         switch (position){
             case 2:
-                //mFragment = new ViewPagerFragment();
+                mFragment=new WorkStreamFragment();
                 break;
             case 5:
                 if (IsNotLogin())
@@ -125,7 +127,7 @@ Resources.Theme x =with(this).getTheme();
     private boolean IsNotLogin()
     {
         SharedPreferences sharedpreferences = getSharedPreferences("loginPrefrence", Context.MODE_PRIVATE);
-        String isLogin = sharedpreferences.getString("userName","Not login");
+        String isLogin = sharedpreferences.getString("mail","Not login");
         return isLogin.contentEquals("Not login");
 
 
