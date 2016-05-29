@@ -51,13 +51,10 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
         else {
             //This is the Header of side menu
             this.userName.setText("تيسير ابراهيم انور");
-
             this.userEmail.setText("tayseer.anwar92@gmail.com");
             this.userPhoto.setImageResource(R.drawable.ic_rudsonlive);
             this.userBackground.setImageResource(R.drawable.ic_user_background_first);
             this.userBackground.setColorFilter(Color.GRAY, PorterDuff.Mode.DARKEN);
-
-
         }
 Resources.Theme x =with(this).getTheme();
         Log.e("the theam", x + "");
@@ -71,13 +68,6 @@ Resources.Theme x =with(this).getTheme();
 
 
     }
-    private View.OnClickListener onClickFooter = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Log.e("onClickFooter","onClickFooter");
-            closeDrawer();
-        }
-    };
     private View.OnClickListener onClickPhoto = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
