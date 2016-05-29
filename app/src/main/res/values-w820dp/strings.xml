@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="inbox">inbox</string>
+    <string name="app_name">SideMenuModule</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">الأعداد</string>
+    <string name="settings">الاعداد</string>
+    <string name="title_activity_main_activity2">MainActivity2Activity</string>
     <string name="homepage">الصفحه الرئيسيه</string>
     <string name="dash_board">متابعة أعمالك</string>
     <string name="post_project">أكتب طلباتك</string>
+    <string name="customer_project">مشروعاتك</string>
     <string name="jop_search">البحث عن وظيف</string>
     <string name="log_out">تسجيل خروج</string>
     <string name="language">اللغه</string>
     <string name="about">عننا</string>
-    <string name="settings">الاعداد</string>
+    <string name="title_activity_registration">RegistrationActivity</string>
     <string name="sigin_in">تسجيل الدخول</string>
+    <string name="defaultpassword"><a href="http://stackoverflow.com/questions/9852184/android-textview-hyperlink?rq=1">google stack overflow</a></string>
+    <string name="myMoney">حسابى</string>
+    <string name="SaveMoney">حسابك عندنا</string>
+    <string name="totalAccount">رصيدك وصل</string>
+    <string name="totalMoney">00.00 جنيه مصرى</string>
+    <string name="yourAccount">حسابك عندنا</string>
+    <string name="yourMoney">00.00 جنيه مصرى</string>
+    <string name="numberOfBids">عدد المنقصات</string>
+    <string name="remainBids">0</string>
+    <string name="search_about_handCraft">البحث عن عامل</string>
 </resources>
