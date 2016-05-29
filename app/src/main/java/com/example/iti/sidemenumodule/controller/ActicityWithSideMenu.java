@@ -50,6 +50,7 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
         else {
             //This is the Header of side menu
             this.userName.setText("تيسير ابراهيم انور");
+
             this.userEmail.setText("tayseer.anwar92@gmail.com");
             this.userPhoto.setImageResource(R.drawable.ic_rudsonlive);
             this.userBackground.setImageResource(R.drawable.ic_user_background_first);
