@@ -58,12 +58,7 @@ public class PortfoliosFragment extends Fragment {
         recyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new MarginDecoration(myContext));
-        recyclerView.setLayoutManager(new GridLayoutManager(myContext, 3));
-      //  recyclerView.setAdapter(new NumberedAdapter(30));
-        //layoutManager = new LinearLayoutManager(myContext);
-        //recyclerView.setLayoutManager(layoutManager);
-        //recyclerView.setItemAnimator(new DefaultItemAnimator());
-
+        recyclerView.setLayoutManager(new GridLayoutManager(myContext, 2));
         data=DataManger.getPortfolios(catId);
         adapter = new PortfolioCustomAdapter(myContext, data);
         recyclerView.setAdapter(adapter);
@@ -119,5 +114,7 @@ public class PortfoliosFragment extends Fragment {
         super.onOptionsItemSelected(item);
         return true;
     }
+
+
 
     }

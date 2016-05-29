@@ -116,7 +116,7 @@ public class MainFragment extends Fragment {
             FragmentManager mFragmentManager = myContext.getSupportFragmentManager();
             mFragment = new PortfoliosFragment(selectedItemId);
             if (mFragment != null) {
-                mFragmentManager.beginTransaction().replace(R.id.container, mFragment).commit();
+                mFragmentManager.beginTransaction().replace(R.id.container, mFragment).addToBackStack("main_fragment").commit();
             }
         }
     }
