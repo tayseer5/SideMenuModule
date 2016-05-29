@@ -29,7 +29,6 @@ public class WorkStreamFragment extends Fragment implements AdapterView.OnItemCl
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.work_strem_fragment, container, false);
-        // looping through all song nodes &lt;song&gt;
         ArrayList<Mypost> myposts  = new ArrayList<>();
         for (int i =0 ;i<10;i++)
         {
