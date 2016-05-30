@@ -1,8 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
@@ -14,6 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_weight="1"
             android:background="@color/material_blue_grey_800"
             android:orientation="vertical">
@@ -28,8 +29,6 @@
                 android:textSize="@dimen/abc_action_bar_default_height_material"
                 android:textColor="@color/background_floating_material_light"
                 android:textAlignment="center"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
                 android:id="@+id/textView2"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp" />
@@ -38,10 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:background="@color/nliveo_orange_colorPrimary"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
+                android:background="@color/nliveo_orange_colorPrimary">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -134,12 +130,12 @@
             </TableLayout>
         </LinearLayout>
     </android.support.design.widget.AppBarLayout>
-    <!--android:layout_alignParentLeft="true"-->
+    android:layout_alignParentLeft="true"
+
     <ListView
         android:id="@+id/list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-
         android:elevation="10dp"
         android:shadowColor="@color/material_grey_800"
         android:shadowDx="10"

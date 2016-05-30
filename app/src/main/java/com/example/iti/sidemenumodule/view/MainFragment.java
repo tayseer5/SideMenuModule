@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,12 +37,13 @@ public class MainFragment extends Fragment {
     static View.OnClickListener myOnClickListener;
     private static ArrayList<Integer> removedItems;
     FragmentActivity myContext;
-    private static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
+    private static final String FRAGMENT_FLAG = "FRAGMENT_FLAG";
+    static Bundle mBundle ;
 
-    public static MainFragment newInstance(String text) {
+    public static MainFragment newInstance(int flag) {
         MainFragment mFragment = new MainFragment();
-        Bundle mBundle = new Bundle();
-        mBundle.putString(TEXT_FRAGMENT, text);
+        mBundle = new Bundle();
+        mBundle.putInt(FRAGMENT_FLAG, flag);
         mFragment.setArguments(mBundle);
         return mFragment;
     }
@@ -49,6 +51,9 @@ public class MainFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+           Log.e("save instance",mBundle.getString(FRAGMENT_FLAG)+"");
+
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         myOnClickListener = new MyOnClickListener(myContext);

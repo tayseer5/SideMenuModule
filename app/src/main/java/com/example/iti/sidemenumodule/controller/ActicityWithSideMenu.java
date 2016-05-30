@@ -41,15 +41,14 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
         mHelpLiveo.add(getString(R.string.customer_project), R.drawable.ic_https_black_24dp);
         mHelpLiveo.add(getString(R.string.jop_search), R.drawable.ic_https_black_24dp);
         mHelpLiveo.add(getString(R.string.search_about_handCraft), R.drawable.ic_https_black_24dp);
-        mHelpLiveo.add(getString(R.string.settings), R.drawable.ic_android_black_24dp);
-        mHelpLiveo.add(getString(R.string.about), R.drawable.ic_android_black_24dp);
-        mHelpLiveo.add(getString(R.string.log_out), R.drawable.ic_android_black_24dp);
+
         //is not login
         if(IsNotLogin())
         {
             mHelpLiveo.add(getString(R.string.sigin_in), R.drawable.ic_https_black_24dp);
         }
         else {
+            mHelpLiveo.add(getString(R.string.log_out), R.drawable.ic_android_black_24dp);
             //This is the Header of side menu
             this.userName.setText("تيسير ابراهيم انور");
             this.userEmail.setText("tayseer.anwar92@gmail.com");
@@ -57,8 +56,8 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
             this.userBackground.setImageResource(R.drawable.ic_user_background_first);
             this.userBackground.setColorFilter(Color.GRAY, PorterDuff.Mode.DARKEN);
         }
-Resources.Theme x =with(this).getTheme();
-        Log.e("the theam", x + "");
+        mHelpLiveo.add(getString(R.string.settings), R.drawable.ic_android_black_24dp);
+        mHelpLiveo.add(getString(R.string.about), R.drawable.ic_android_black_24dp);
         with(this,1) // default theme is dark ,R.color.nliveo_black
                 .startingPosition(0) //Starting position in the list
                 .addAllHelpItem(mHelpLiveo.getHelp())
@@ -90,13 +89,16 @@ Resources.Theme x =with(this).getTheme();
         FragmentManager mFragmentManager = getSupportFragmentManager();
 
         switch (position){
-            case 2:
-                mFragment=new WorkStreamFragment();
+            case 1:
+                mFragment = MainFragment.newInstance(1);
                 break;
             case 4:
-                mFragment = new EmployeeListFragment();
+                mFragment=new WorkStreamFragment();
                 break;
             case 5:
+                mFragment = new EmployeeListFragment();
+                break;
+            case 6:
                 if (IsNotLogin())
                 {
                     Intent intent = new Intent(this,RegistrationActivity.class);
@@ -110,7 +112,7 @@ Resources.Theme x =with(this).getTheme();
                 }
                 break;
             default:
-                mFragment = MainFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = MainFragment.newInstance(0);
                 break;
         }
 
