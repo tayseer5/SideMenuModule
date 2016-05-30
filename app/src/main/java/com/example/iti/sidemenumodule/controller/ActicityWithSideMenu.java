@@ -18,6 +18,7 @@ import com.example.iti.sidemenumodule.view.MainFragment;
 import com.example.iti.sidemenumodule.R;
 import com.example.iti.sidemenumodule.view.RegistrationActivity;
 import com.example.iti.sidemenumodule.view.WorkStreamFragment;
+//import com.example.iti.sidemenumodule.view.WorkStreamFragment;
 
 import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
