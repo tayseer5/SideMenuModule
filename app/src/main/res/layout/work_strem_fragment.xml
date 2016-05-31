@@ -137,12 +137,12 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:elevation="10dp"
-        android:shadowColor="@color/material_grey_800"
+        android:shadowColor="@color/nliveo_gray"
         android:shadowDx="10"
         android:shadowDy="10"
-        android:shadowRadius="20"
-        android:divider="#b5b5b5"
-        android:dividerHeight="1dp"
+        android:shadowRadius="5"
+        android:divider="@color/nliveo_gray"
+        android:dividerHeight="10dp"
         android:listSelector="@drawable/list_selector"
         android:layout_marginTop="2dp" />
 </LinearLayout>

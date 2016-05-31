@@ -25,4 +25,7 @@
     <string name="numberOfBids">عدد المنقصات</string>
     <string name="remainBids">0</string>
     <string name="search_about_handCraft">البحث عن عامل</string>
+    <string name="deliver_on">يسلم فى:</string>
+    <string name="project_user_name">أسم العميل</string>
+    <string name="more">المزيد...</string>
 </resources>

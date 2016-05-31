@@ -52,10 +52,10 @@
             android:autoLink="web"
             android:textColor="@color/nliveo_blue_alpha_colorPrimaryDark"
             android:textStyle="italic"
-            android:linksClickable="true"
             android:id="@+id/forgetPasswordURL"
             android:layout_gravity="center_horizontal"
-            android:textAppearance="?android:attr/textAppearanceSmall"/>
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:clickable="true" />
 
     </LinearLayout>
 </ScrollView>

@@ -65,7 +65,6 @@ public class MainFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         data = DataManger.getcategories();
         removedItems = new ArrayList<Integer>();
-
         adapter = new CustomAdapter(myContext, data);
         recyclerView.setAdapter(adapter);
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
@@ -96,10 +95,10 @@ public class MainFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            removeItem(v);
+            getItems(v);
         }
 
-        private void removeItem(View v) {
+        private void getItems(View v) {
             int selectedItemPosition = recyclerView.getChildPosition(v);
             RecyclerView.ViewHolder viewHolder
                     = recyclerView.findViewHolderForPosition(selectedItemPosition);
@@ -119,11 +118,20 @@ public class MainFragment extends Fragment {
         private void moveToProductFragment(int selectedItemId) {
             Fragment mFragment = null;
             FragmentManager mFragmentManager = myContext.getSupportFragmentManager();
-            mFragment = new PortfoliosFragment(selectedItemId);
+            if(mBundle.getInt(FRAGMENT_FLAG)==1)
+            {
+                mFragment = new requestProductFragment(selectedItemId);
+            }
+            else
+            {
+                mFragment = new PortfoliosFragment(selectedItemId);
+            }
             if (mFragment != null) {
                 mFragmentManager.beginTransaction().replace(R.id.container, mFragment).addToBackStack("main_fragment").commit();
             }
         }
+
+
     }
 
 

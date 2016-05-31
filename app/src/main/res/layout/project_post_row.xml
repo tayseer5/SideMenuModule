@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:background="@android:color/white"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+    <ImageView
+        android:id="@+id/project_image"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:src="@drawable/no_image"
+        android:layout_marginLeft="3dp"
+        android:layout_margin="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="3dp" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:orientation="vertical"
+        android:padding="5dip" >
+        <TextView
+            android:id="@+id/project_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wooden Table"
+            android:textColor="#040404"
+            android:typeface="sans"
+            android:textSize="15dip"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500.00 LE"
+            android:textColor="@color/cardview_dark_background"
+            android:typeface="sans"
+            android:textSize="13dip"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp" />
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:cacheColorHint="@android:color/transparent"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+            <TextView
+                android:id="@+id/deadline_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/deliver_on"
+                android:textColor="@color/material_grey_850"
+                android:typeface="sans"
+                android:textSize="13dip"
+                android:layout_marginRight="3dp" />
+            <TextView
+                android:id="@+id/max_deadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30/6/2016"
+                android:textColor="@color/material_grey_850"
+                android:typeface="sans"
+                android:textSize="13dip"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginStart="5dp"/>
+        </LinearLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:cacheColorHint="@android:color/transparent"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/project_user_name"
+            android:textColor="@color/material_grey_850"
+            android:typeface="sans"
+            android:textSize="13dip"
+            android:layout_marginRight="3dp" />
+        <TextView
+            android:id="@+id/client_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tayseer"
+            android:textColor="@color/material_grey_850"
+            android:typeface="sans"
+            android:textSize="13dip"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginStart="5dp"/>
+    </LinearLayout>
+        <TextView
+            android:id="@+id/more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/more"
+            android:textColor="@color/nliveo_blue_gray_colorPrimary"
+            android:typeface="sans"
+            android:textSize="11dip"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginStart="5dp"
+            android:layout_gravity="end" />
+        </LinearLayout>
+
+</LinearLayout>

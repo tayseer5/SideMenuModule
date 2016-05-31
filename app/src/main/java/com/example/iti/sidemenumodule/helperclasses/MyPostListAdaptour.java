@@ -2,7 +2,6 @@ package com.example.iti.sidemenumodule.helperclasses;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import com.example.iti.sidemenumodule.R;
 import com.example.iti.sidemenumodule.model.Mypost;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by ITI on 25/05/2016.
@@ -51,7 +49,7 @@ public class MyPostListAdaptour extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View row=convertView;
         if(convertView==null)
-        row = inflater.inflate(R.layout.post_row, null);
+        row = inflater.inflate(R.layout.my_post_row, null);
         TextView projectName = (TextView)row.findViewById(R.id.project_name); // title
         TextView details = (TextView)row.findViewById(R.id.details); // artist name
         ImageView thumb_image=(ImageView)row.findViewById(R.id.list_image); // thumb image
