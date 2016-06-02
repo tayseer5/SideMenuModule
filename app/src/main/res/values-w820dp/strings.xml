@@ -26,7 +26,20 @@
     <string name="numberOfBids">عدد المنقصات</string>
     <string name="remainBids">0</string>
     <string name="search_about_handCraft">البحث عن عامل</string>
+    <string name="post_project_skills">المهارات التي يحتاجها مشروعك</string>
+    <string name="post_project_skills_hint">المهارات التي يجب توفرها لتنفيذ مشروعك ..</string>
+    <string name="post_project_category">اختار تصنيف للمشروع</string>
+    <string name="post_project_title">عنوان مشروعك ؟</string>
+    <string name="post_project_title_hint">برواز خشبي , علبه فضيه ...</string>
     <string name="deliver_on">يسلم فى:</string>
     <string name="project_user_name">أسم العميل</string>
     <string name="more">المزيد...</string>
+    <string name="second_post_project_head">محتاجين نعرف اكتر ..</string>
+    <string name="post_project_buget">حتدفع لحد كام ؟</string>
+    <string name="post_project_buget_coins">جنيه</string>
+    <string name="post_project_date">محتاج طلبك في خلال قد ايه ؟</string>
+    <string name="post_project_more_details">حابب توضح اكتر التفاصيل ؟</string>
+    <string name="post_project_more_details_hint">محتاج اني استخدمها في ...</string>
+    <string name="post_project_done_button">أطلب</string>
+    <string name="post_project_next_button">التالي</string>
 </resources>

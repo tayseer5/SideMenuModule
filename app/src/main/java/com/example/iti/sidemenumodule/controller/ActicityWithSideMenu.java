@@ -3,7 +3,6 @@ package com.example.iti.sidemenumodule.controller;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -91,6 +90,10 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
         switch (position){
             case 1:
                 mFragment = MainFragment.newInstance(1);
+                break;
+            case 2:
+                Intent postProjectIntent = new Intent(this,PostProjectMainActivity.class);
+                startActivity(postProjectIntent);
                 break;
             case 4:
                 mFragment=new WorkStreamFragment();
