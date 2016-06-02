@@ -50,4 +50,9 @@
     <string name="post_project_terms">أقبل بالشروط والاحكام</string>
     <string name="post_project_done_button">أطلب</string>
     <string name="post_project_next_button">التالي</string>
+    <string name="days_string">أيام</string>
+    <string name="two_weeks_string">أسبوعان</string>
+    <string name="three_weeks_string">أسابيع</string>
+    <string name="month_string">شهر</string>
+    <string name="anytime_string">أي وقت</string>
 </resources>

@@ -40,7 +40,7 @@ public class SecondPostProjectFragment extends Fragment {
     EditText moreEditText;
     Button attatcmentButton;
     Button doneButton;
-    String[] interval={"7????","???????","3??????","???","?? ???"};
+    String[] interval={String.format("7", getString(R.string.days_string)),String.format(getString(R.string.two_weeks_string)),String.format("3", getString(R.string.three_weeks_string)),String.format(getString(R.string.month_string)),String.format(getString(R.string.anytime_string))};
     public SecondPostProjectFragment() {
         // Required empty public constructor
     }
@@ -71,18 +71,18 @@ public class SecondPostProjectFragment extends Fragment {
             public void onItemSelected(AdapterView<?> arg0, View arg1, int pos, long arg3) {
                 String date = dateSpinner.getSelectedItem().toString();
                 int daysNum=0;
-                switch (date)
+                switch (pos)
                 {
-                    case "7????":
+                    case 0:
                         daysNum=7;
                         break;
-                    case "???????":
+                    case 1:
                         daysNum=14;
                         break;
-                    case "3??????":
+                    case 2:
                         daysNum=21;
                         break;
-                    case "???":
+                    case 3:
                         daysNum=30;
                         break;
                     default:
