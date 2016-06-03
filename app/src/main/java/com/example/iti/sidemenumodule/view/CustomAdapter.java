@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.iti.sidemenumodule.R;
-import com.example.iti.sidemenumodule.helperclasses.Farsi;
 import com.example.iti.sidemenumodule.model.Category;
 
 import java.util.ArrayList;
@@ -54,8 +53,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public void onBindViewHolder(final MyViewHolder holder, final int listPosition) {
 
         TextView textViewName = holder.textViewName;
+        Typeface tf = Typeface.createFromAsset(context.getAssets(), fontPath);
+        textViewName.setTypeface(tf);
         ImageView imageView = holder.imageViewIcon;
-        textViewName.setText(Farsi.Convert(dataSet.get(listPosition).getName()));
+        textViewName.setText(dataSet.get(listPosition).getName());
         imageView.setImageResource(dataSet.get(listPosition).getImage());
     }
 

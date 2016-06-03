@@ -44,9 +44,7 @@ public class EmployeeListFragment extends Fragment {
         listView = (ListView) rootView.findViewById(R.id.employee_listview);
         data= DataManger.getEmployees();
         EmployeeCustomAdapter adapter = new EmployeeCustomAdapter(myContext, data);
-
         listView.setAdapter(adapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override

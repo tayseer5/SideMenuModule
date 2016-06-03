@@ -16,6 +16,22 @@
             android:layout_height="200dp"
             android:background="@drawable/multi_color_splash_screen"
             app:popupTheme="@style/ThemeOverlay.AppCompat" >
+            <!--<RelativeLayout-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:gravity="center">-->
+                <!--<ImageView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:scaleType="fitXY"-->
+                    <!--android:src="@drawable/multi_color_splash_screen"-->
+                    <!--android:contentDescription="@string/app_name"-->
+                    <!--android:layout_marginLeft="0dp"-->
+                    <!--android:layout_margin="0dp"-->
+                    <!--android:layout_marginTop="0dp"-->
+                    <!--android:layout_marginRight="0dp"-->
+                    <!--android:layout_marginBottom="0dp" />-->
+            <!--</RelativeLayout>-->
             </android.support.v7.widget.Toolbar>
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"

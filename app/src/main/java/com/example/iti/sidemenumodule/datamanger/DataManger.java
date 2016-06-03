@@ -3,6 +3,7 @@ package com.example.iti.sidemenumodule.datamanger;
 import com.example.iti.sidemenumodule.helperclasses.MyData;
 import com.example.iti.sidemenumodule.model.Category;
 import com.example.iti.sidemenumodule.model.Employee;
+import com.example.iti.sidemenumodule.model.ProjectData;
 import com.example.iti.sidemenumodule.model.Portfolio;
 
 import java.util.ArrayList;
@@ -42,4 +43,20 @@ public class DataManger {
         return data;
     }
 
+    public static ArrayList<ProjectData> getMyProjectData() {
+        ArrayList data = new ArrayList<ProjectData>();
+        for (int i = 0; i < MyData.projectName.length; i++) {
+            data.add(new ProjectData(MyData.presentageOfFinsh[i],MyData.projectName[i],MyData.projectSate[i],MyData.startDate[i],MyData.endDate[i],MyData.customerName[i],MyData.salary[i]));
+        }
+
+        return data;
+    }
+    public static ArrayList<ProjectData> getProjectData() {
+        ArrayList data = new ArrayList<ProjectData>();
+        for (int i = 0; i < MyData.projectName.length; i++) {
+            data.add(new ProjectData(MyData.presentageOfFinsh[i],MyData.projectName[i],MyData.projectSate[i],MyData.startDate[i],MyData.endDate[i],MyData.customerName[i],MyData.salary[i]));
+        }
+
+        return data;
+    }
 }

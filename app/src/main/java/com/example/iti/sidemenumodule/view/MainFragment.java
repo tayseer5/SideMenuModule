@@ -52,12 +52,10 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-           Log.e("save instance",mBundle.getString(FRAGMENT_FLAG)+"");
+           Log.e("save instance",mBundle.getInt(FRAGMENT_FLAG)+"");
 
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-
         myOnClickListener = new MyOnClickListener(myContext);
-
         recyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(myContext);
@@ -120,7 +118,7 @@ public class MainFragment extends Fragment {
             FragmentManager mFragmentManager = myContext.getSupportFragmentManager();
             if(mBundle.getInt(FRAGMENT_FLAG)==1)
             {
-                mFragment = new requestProductFragment(selectedItemId);
+                mFragment = new ProjectListFragment(selectedItemId);
             }
             else
             {

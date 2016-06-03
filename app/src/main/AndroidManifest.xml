@@ -29,12 +29,9 @@
             android:label="@string/title_activity_registration" >
         </activity>
         <activity
-            android:name=".controller.PostProjectMainActivity"
-            android:label="@string/title_activity_post_project_main"
-            android:parentActivityName=".controller.ActicityWithSideMenu" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.iti.sidemenumodule.controller.ActicityWithSideMenu" />
+            android:name=".view.ProjectDetails"
+            android:label="@string/title_activity_main"
+            android:theme="@style/themeWithActionBar" >
         </activity>
     </application>
 
