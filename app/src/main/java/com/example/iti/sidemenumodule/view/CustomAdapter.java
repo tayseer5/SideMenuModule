@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
+
     private ArrayList<Category> dataSet;
     private String fontPath = "fonts/NotoNaskhArabic-Regular.ttf";
     private Context context;

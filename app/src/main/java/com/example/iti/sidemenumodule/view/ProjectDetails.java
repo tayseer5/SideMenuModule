@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 
 public class ProjectDetails extends AppCompatActivity{
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

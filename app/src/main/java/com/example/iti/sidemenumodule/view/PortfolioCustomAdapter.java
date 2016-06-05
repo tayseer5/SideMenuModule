@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class PortfolioCustomAdapter extends RecyclerView.Adapter<PortfolioCustomAdapter.MyViewHolder> {
 
     private ArrayList<Portfolio> dataSet;
+
     private String fontPath = "fonts/NotoNaskhArabic-Regular.ttf";
     private Context context;
     public static class MyViewHolder extends RecyclerView.ViewHolder {

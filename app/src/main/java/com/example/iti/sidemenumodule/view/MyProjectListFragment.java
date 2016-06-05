@@ -25,6 +25,7 @@ import java.util.ArrayList;
  * Created by ITI on 01/06/2016.
  */
 public class MyProjectListFragment extends Fragment{
+
     ListView listView;
     View rootView;
     MyProjectCustomerAdapter adapter;

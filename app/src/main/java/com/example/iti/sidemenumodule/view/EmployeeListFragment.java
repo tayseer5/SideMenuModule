@@ -22,6 +22,7 @@ import java.util.ArrayList;
  * Created by Ahmed_telnet on 5/25/2016.
  */
 public class EmployeeListFragment extends Fragment {
+
     ListView listView;
     View rootView;
     FragmentActivity myContext;

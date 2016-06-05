@@ -17,6 +17,7 @@ import java.util.TimerTask;
  * Created by ITI on 02/06/2016.
  */
 public class ImageViewPagerAdapter extends PagerAdapter {
+
     Context context;
     private int[] GalImages = new int[] {
             R.drawable.table1,

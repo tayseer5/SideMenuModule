@@ -10,6 +10,7 @@ public class Portfolio {
     int image;
     int categoryId;
 
+
     public Portfolio(int portofolioId, String portDescription, int userId, int image, int categoryId) {
         this.portofolioId = portofolioId;
         this.portDescription = portDescription;

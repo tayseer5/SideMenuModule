@@ -26,6 +26,7 @@ public class RegistrationTabView extends Fragment implements View.OnClickListene
         return rootView;
     }
 
+
     @Override
     public void onClick(View view) {
        EditText userName= (EditText) rootView.findViewById(R.id.editText);

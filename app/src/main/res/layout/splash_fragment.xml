@@ -10,3 +10,5 @@
         android:src="@drawable/multi_color_splash_screen"
         android:layout_gravity="left|top" />
 </RelativeLayout>
+
+

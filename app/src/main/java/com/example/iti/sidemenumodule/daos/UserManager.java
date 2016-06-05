@@ -15,6 +15,7 @@ import com.loopj.android.http.RequestParams;
 public class UserManager implements AfterAsynchronous {
 
 
+
     public UserManager() {
     }
 

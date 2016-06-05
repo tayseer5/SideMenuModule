@@ -4,6 +4,7 @@ package com.example.iti.sidemenumodule.model;
  * Created by ITI on 04/06/2016.
  */
 public class Users {
+
     private Integer userId;
     private String userEmail;
     private String userImageUrl;

@@ -32,6 +32,7 @@ public class ProjectListFragment extends Fragment implements AdapterView.OnItemC
     FragmentActivity myContext;
     ArrayList<ProjectData> data;
 
+
     public ProjectListFragment(int id) {
     }
     @Override

@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * Created by Ahmed_telnet on 5/23/2016.
  */
 public class DataManger {
+
     public static ArrayList<Category> getcategories() {
         ArrayList data = new ArrayList<Category>();
         for (int i = 0; i < MyData.nameArray.length; i++) {

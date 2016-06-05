@@ -25,6 +25,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private Toolbar toolbar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -18,6 +18,7 @@ import java.util.ArrayList;
  * Created by ITI on 25/05/2016.
  */
 public class MyPostListAdaptour extends BaseAdapter {
+
     private Fragment fragment;
     private ArrayList<Mypost> potsData;
     private static LayoutInflater inflater=null;
