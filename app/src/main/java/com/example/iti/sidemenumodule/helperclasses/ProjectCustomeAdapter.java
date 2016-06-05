@@ -31,6 +31,7 @@ public class ProjectCustomeAdapter extends ArrayAdapter {
         TextView projectSalary;
         TextView projectClient;
     }
+
     private final Activity context;
     ArrayList<ProjectData> myDate;
     public ProjectCustomeAdapter(Activity context, ArrayList<ProjectData> data) {

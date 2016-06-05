@@ -5,6 +5,7 @@ import com.example.iti.sidemenumodule.R;
 
 public class MyData {
 
+
     public static String[] nameArray = {"?????", "????????", "????"};
     public static String[] projectName = {"Wooden Table", "Portie", "Chair","Table"};
     public static String[] projectSate = {"inProgress", "pending", "Finish","inProgress"};
