@@ -37,6 +37,7 @@ public class EmployeeCustomAdapter extends ArrayAdapter {
         TextView titleTextView=(TextView)rowView.findViewById(R.id.employee_title_textview);
         ImageView imageView=(ImageView)rowView.findViewById(R.id.employee_image);
         RatingBar ratingBar=(RatingBar)rowView.findViewById(R.id.rating);
+
         nameTextView.setText(myDate.get(position).getName());
         titleTextView.setText(myDate.get(position).getTitle());
         imageView.setImageResource(myDate.get(position).getImage());

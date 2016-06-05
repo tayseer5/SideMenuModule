@@ -10,7 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.iti.sidemenumodule.R;
+import com.example.iti.sidemenumodule.helperclasses.Farsi;
 import com.example.iti.sidemenumodule.model.Category;
+import com.norbsoft.typefacehelper.TypefaceCollection;
+import com.norbsoft.typefacehelper.TypefaceHelper;
 
 import java.util.ArrayList;
 
@@ -18,7 +21,6 @@ import java.util.ArrayList;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
     private ArrayList<Category> dataSet;
-    private String fontPath = "fonts/NotoNaskhArabic-Regular.ttf";
     private Context context;
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -53,10 +55,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public void onBindViewHolder(final MyViewHolder holder, final int listPosition) {
 
         TextView textViewName = holder.textViewName;
-        Typeface tf = Typeface.createFromAsset(context.getAssets(), fontPath);
-        textViewName.setTypeface(tf);
         ImageView imageView = holder.imageViewIcon;
-        textViewName.setText(dataSet.get(listPosition).getName());
+        TypefaceCollection typeface=new TypefaceCollection.Builder()
+                .set(Typeface.NORMAL,Typeface.createFromAsset(context.getAssets(),"fonts/DroidKufi-Regular.ttf"))
+                .create();
+        TypefaceHelper.init(typeface);
+        //textViewName.setTypeface(typeface);
+       // textViewName.setText(dataSet.get(listPosition).getName());
+        textViewName.setText(context.getString(R.string.app_name));
         imageView.setImageResource(dataSet.get(listPosition).getImage());
     }
 

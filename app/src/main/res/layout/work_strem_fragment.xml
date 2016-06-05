@@ -130,6 +130,7 @@
             </TableLayout>
         </LinearLayout>
     </android.support.design.widget.AppBarLayout>
+    android:layout_alignParentLeft="true"
 
     <ListView
         android:id="@+id/list"

@@ -7,6 +7,7 @@ import android.os.Handler;
 
 import com.example.iti.sidemenumodule.R;
 import com.example.iti.sidemenumodule.controller.ActicityWithSideMenu;
+import com.example.iti.sidemenumodule.controller.SimpleTabsActivity;
 
 /**
  * Created by Ahmed_telnet on 5/29/2016.

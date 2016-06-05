@@ -1,10 +1,13 @@
 package com.example.iti.sidemenumodule.datamanger;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.example.iti.sidemenumodule.helperclasses.MyData;
 import com.example.iti.sidemenumodule.model.Category;
 import com.example.iti.sidemenumodule.model.Employee;
-import com.example.iti.sidemenumodule.model.ProjectData;
 import com.example.iti.sidemenumodule.model.Portfolio;
+import com.example.iti.sidemenumodule.model.User;
 
 import java.util.ArrayList;
 
@@ -43,22 +46,16 @@ public class DataManger {
         return data;
     }
 
-    public static ArrayList<ProjectData> getMyProjectData() {
-        ArrayList data = new ArrayList<ProjectData>();
-        for (int i = 0; i < MyData.projectName.length; i++) {
-            data.add(new ProjectData(MyData.presentageOfFinsh[i],MyData.projectName[i],MyData.projectSate[i],MyData.startDate[i],MyData.endDate[i],MyData.customerName[i],MyData.salary[i]));
+    public static ArrayList<Portfolio> getPortfolios(User user) {
+        ArrayList data = new ArrayList<Portfolio>();
+        for (int i = 0; i < MyData.nameArray.length*5; i++) {
+            data.add(new Portfolio(MyData.id_[i%2],MyData.nameArray[i%2],MyData.id_[i%2],MyData.drawableArrayPortfolio[i%2],MyData.id_[i%2]));
         }
 
         return data;
     }
-    public static ArrayList<ProjectData> getProjectData() {
-        ArrayList data = new ArrayList<ProjectData>();
-        for (int i = 0; i < MyData.projectName.length; i++) {
-            data.add(new ProjectData(MyData.presentageOfFinsh[i],MyData.projectName[i],MyData.projectSate[i],MyData.startDate[i],MyData.endDate[i],MyData.customerName[i],MyData.salary[i]));
-        }
 
-        return data;
-    }
+
 }
 /*
 wanted manager classs

@@ -2,6 +2,7 @@ package com.example.iti.sidemenumodule.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -21,6 +22,8 @@ import com.example.iti.sidemenumodule.R;
 import com.example.iti.sidemenumodule.datamanger.DataManger;
 import com.example.iti.sidemenumodule.helperclasses.MyData;
 import com.example.iti.sidemenumodule.model.Category;
+import com.norbsoft.typefacehelper.TypefaceCollection;
+import com.norbsoft.typefacehelper.TypefaceHelper;
 
 import java.util.ArrayList;
 
@@ -52,10 +55,12 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-           Log.e("save instance",mBundle.getInt(FRAGMENT_FLAG)+"");
+//           Log.e("save instance",mBundle.getString(FRAGMENT_FLAG)+"");
 
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
         myOnClickListener = new MyOnClickListener(myContext);
+
         recyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(myContext);
@@ -66,6 +71,11 @@ public class MainFragment extends Fragment {
         adapter = new CustomAdapter(myContext, data);
         recyclerView.setAdapter(adapter);
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        TypefaceCollection typeface=new TypefaceCollection.Builder()
+                .set(Typeface.NORMAL,Typeface.createFromAsset(myContext.getAssets(),"fonts/DroidKufi-Regular.ttf"))
+                .set(Typeface.BOLD, Typeface.createFromAsset(myContext.getAssets(), "fonts/DroidKufi-Bold.ttf"))
+                .create();
+        TypefaceHelper.init(typeface);
         return rootView;
     }
 
@@ -118,7 +128,7 @@ public class MainFragment extends Fragment {
             FragmentManager mFragmentManager = myContext.getSupportFragmentManager();
             if(mBundle.getInt(FRAGMENT_FLAG)==1)
             {
-                mFragment = new ProjectListFragment(selectedItemId);
+                mFragment = new requestProductFragment(selectedItemId);
             }
             else
             {

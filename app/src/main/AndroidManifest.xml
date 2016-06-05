@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".controller.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
@@ -26,14 +27,41 @@
             android:name=".controller.ActicityWithSideMenu"
             android:label="@string/app_name" >
         </activity>
+        <!-- <activity -->
+        <!-- android:name=".controller.SimpleTabsActivity" -->
+        <!-- android:label="@string/app_name" > -->
+        <!-- </activity> -->
         <activity
             android:name=".view.RegistrationActivity"
             android:label="@string/title_activity_registration" >
         </activity>
         <activity
-            android:name=".view.ProjectDetails"
-            android:label="@string/title_activity_main"
-            android:theme="@style/themeWithActionBar" >
+            android:name=".controller.PostProjectMainActivity"
+            android:label="@string/title_activity_post_project_main"
+            android:parentActivityName=".controller.ActicityWithSideMenu" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.iti.sidemenumodule.controller.ActicityWithSideMenu" />
+        </activity>
+        <activity
+            android:name=".controller.ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:parentActivityName=".controller.ActicityWithSideMenu" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.iti.sidemenumodule.controller.ActicityWithSideMenu" />
+        </activity>
+        <activity
+            android:name=".controller.ProtoflioActivity"
+            android:label="@string/title_activity_protoflio"
+            android:parentActivityName=".controller.ProfileActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.iti.sidemenumodule.controller.ProfileActivity" />
+        </activity>
+        <activity
+            android:name=".helperclasses.CustomPhotoGalleryActivity"
+            android:label="@string/title_activity_custom_photo_gallery" >
         </activity>
         <activity
             android:name=".view.UploadImageActivity"

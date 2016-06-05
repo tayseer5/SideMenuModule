@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.iti.sidemenumodule.controller.ProfileActivity">
+    <item android:id="@+id/menu_item_done"
+        android:icon="@drawable/ic_done_all"
+        android:title="تم"
+        app:showAsAction="ifRoom|withText"/>
+</menu>
