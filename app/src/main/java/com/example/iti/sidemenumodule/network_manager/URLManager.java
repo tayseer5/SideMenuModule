@@ -6,3 +6,5 @@ package com.example.iti.sidemenumodule.network_manager;
 public class URLManager {
     public static String imageURL = "";
 }
+
+

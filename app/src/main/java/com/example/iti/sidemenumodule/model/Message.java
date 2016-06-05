@@ -4,8 +4,8 @@ package com.example.iti.sidemenumodule.model;
  * Created by ITI on 27/02/2016.
  */
 public class Message {
-    int code;
-    String Msg;
+    int  code;
+    String  Msg;
 
     public int getCode() {
         return code;

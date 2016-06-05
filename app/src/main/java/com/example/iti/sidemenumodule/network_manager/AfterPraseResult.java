@@ -9,3 +9,5 @@ public interface AfterPraseResult {
     public void afterParesResult(Message message, int code);
     public void errorParesResult(String errorMessage);
 }
+
+

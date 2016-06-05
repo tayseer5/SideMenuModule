@@ -9,4 +9,5 @@ public interface AfterAsynchronous {
     public void afterExecute(Message message, int code);
     public void errorInExecute(String errorMessage);
 
+
 }
