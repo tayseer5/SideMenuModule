@@ -33,6 +33,7 @@ import java.util.ArrayList;
 public class MainFragment extends Fragment {
 
 
+
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;

@@ -38,6 +38,7 @@ public class ProjectCustomeAdapter extends ArrayAdapter {
         super(context, R.layout.project_post_row);
         this.context = context;
         myDate=data;
+
     }
 
     @Override

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
+
     private ArrayList<Category> dataSet;
     private Context context;
     public static class MyViewHolder extends RecyclerView.ViewHolder {

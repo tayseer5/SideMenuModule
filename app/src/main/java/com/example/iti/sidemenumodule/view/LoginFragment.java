@@ -24,6 +24,7 @@ public class LoginFragment extends Fragment  {
     View rootView;
     EditText mail;
     EditText password;
+
     TextView href;
     public LoginFragment() {
 

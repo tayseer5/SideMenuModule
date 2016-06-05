@@ -8,6 +8,7 @@ import com.example.iti.sidemenumodule.model.Message;
 public interface AfterPraseResult {
     public void afterParesResult(Message message, int code);
     public void errorParesResult(String errorMessage);
+
 }
 
 

@@ -25,6 +25,7 @@ public class WorkStreamFragment extends Fragment implements AdapterView.OnItemCl
         super.onCreate(savedInstanceState);
     }
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

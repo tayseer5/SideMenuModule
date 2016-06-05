@@ -8,6 +8,7 @@ import android.view.View;
 import com.example.iti.sidemenumodule.R;
 
 public class MarginDecoration extends RecyclerView.ItemDecoration {
+
   private int margin;
 
   public MarginDecoration(Context context) {

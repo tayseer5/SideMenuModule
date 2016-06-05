@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 public class requestProductFragment extends Fragment {
     public requestProductFragment(int selectedItemId) {
 
+
     }
 
 

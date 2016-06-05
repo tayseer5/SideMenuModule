@@ -19,6 +19,7 @@ import java.util.ArrayList;
  * Created by Rehab El-Kasaby on 3/3/2016.
  */
 public class EmployeeCustomAdapter extends ArrayAdapter {
+
     private final Activity context;
     ArrayList<Employee> myDate;
     public EmployeeCustomAdapter(Activity context, ArrayList<Employee> data) {

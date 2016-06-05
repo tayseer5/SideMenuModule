@@ -33,6 +33,7 @@ import br.liveo.navigationliveo.NavigationLiveo;
 public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClickListener {
     private HelpLiveo mHelpLiveo;
     private Toolbar toolbar;
+
     @Override
     public void onInt(Bundle bundle) {
         Intent test = new Intent(this, UploadImageActivity.class);

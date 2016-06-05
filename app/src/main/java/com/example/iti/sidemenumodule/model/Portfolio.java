@@ -11,6 +11,7 @@ public class Portfolio {
     int categoryId;
     public Portfolio(){}
 
+
     public Portfolio(int portofolioId, String portDescription, int userId, int image, int categoryId) {
         this.portofolioId = portofolioId;
         this.portDescription = portDescription;

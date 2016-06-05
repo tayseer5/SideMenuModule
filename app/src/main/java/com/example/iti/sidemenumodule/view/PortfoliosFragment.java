@@ -31,6 +31,7 @@ import java.util.ArrayList;
  */
 public class PortfoliosFragment extends Fragment {
     private static RecyclerView.Adapter adapter;
+
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
     private static ArrayList<Portfolio> data;

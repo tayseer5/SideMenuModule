@@ -41,6 +41,7 @@ public class UploadImageActivity extends ActionBarActivity {
     private Uri outputFileUri;
     private Bitmap bitmap;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_image);
