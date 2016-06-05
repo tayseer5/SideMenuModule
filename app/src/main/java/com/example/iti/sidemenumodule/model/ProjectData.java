@@ -9,6 +9,7 @@ public class ProjectData {
     String state;
     String startDate;
     String endDate;
+
     String supplerName;
 
     public String getSalary() {
