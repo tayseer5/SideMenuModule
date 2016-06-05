@@ -18,6 +18,7 @@ import com.example.iti.sidemenumodule.view.MainFragment;
 import com.example.iti.sidemenumodule.R;
 import com.example.iti.sidemenumodule.view.MyProjectListFragment;
 import com.example.iti.sidemenumodule.view.RegistrationActivity;
+import com.example.iti.sidemenumodule.view.UploadImageActivity;
 import com.example.iti.sidemenumodule.view.WorkStreamFragment;
 //import com.example.iti.sidemenumodule.view.WorkStreamFragment;
 
@@ -31,6 +32,9 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
     private HelpLiveo mHelpLiveo;
     @Override
     public void onInt(Bundle bundle) {
+        Intent test = new Intent(this, UploadImageActivity.class);
+        startActivity(test);
+
         Log.e("in init", "yes");
 
 //Menu Elements

@@ -60,3 +60,12 @@ public class DataManger {
         return data;
     }
 }
+/*
+wanted manager classs
+1) User manager class has getUser(){login}; createUser(){register}; deleteUser(){logout}; updateUser();
+2) portfolio manager class has getPortfolio(); createPortfolio(); deletePortfolio(); deleteAllPortfolio(); updatePortfolio();
+3) MyProject manager class has getMyProject();  deleteMyProject(); updateMyProject();
+4) Project manager class has getProject(); createProject();
+5) Category manager class has getCategory();
+6) Proposer manager class has getProposer(); deleteMyProposer(); insertProposer(); updateProposer();
+ */
