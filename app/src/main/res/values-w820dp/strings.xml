@@ -63,4 +63,9 @@
     <string name="portfolio_information">أعرض افضل اعمالك</string>
     <string name="add_photos">أضف صوره او مجموعه صور لعملك</string>
     <string name="show_profile">ملفك الشخصي</string>
+    <string name="alert">تنبيه</string>
+    <string name="error_message">لا يمكن استرجاع البيانات تحقق من الانترنت</string>
+    <string name="category_head">الفئات</string>
+    <string name="jobs_head">الوظائف</string>
+    <string name="workers_head">الموردين</string>
 </resources>

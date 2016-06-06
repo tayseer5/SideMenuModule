@@ -62,9 +62,9 @@ public class SimpleTabsActivity extends Fragment {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(myContext.getSupportFragmentManager());
-        adapter.addFragment(new MainFragment(), "ONE");
-        adapter.addFragment(new WorkStreamFragment(), "TWO");
-        adapter.addFragment(new EmployeeListFragment(), "THREE");
+        adapter.addFragment(new MainFragment(), getString(R.string.category_head));
+        adapter.addFragment(new WorkStreamFragment(), getString(R.string.jobs_head));
+        adapter.addFragment(new EmployeeListFragment(), getString(R.string.workers_head));
         viewPager.setAdapter(adapter);
     }
 

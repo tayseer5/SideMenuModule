@@ -4,7 +4,8 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.iti.sidemenumodule.model.Category;
-import com.example.iti.sidemenumodule.model.Message;
+import com.example.iti.sidemenumodule.model.Employee;
+import com.example.iti.sidemenumodule.model.Users;
 import com.example.iti.sidemenumodule.network_manager.AfterAsynchronous;
 import com.example.iti.sidemenumodule.network_manager.AfterPraseResult;
 import com.example.iti.sidemenumodule.network_manager.HttpClientConn;
@@ -16,35 +17,34 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.annotation.AnnotationFormatError;
 import java.util.ArrayList;
 
 /**
- * Created by Ahmed_telnet on 6/5/2016.
+ * Created by Ahmed_telnet on 6/6/2016.
  */
-public class CategoryManger implements AfterAsynchronous{
-    private static ArrayList<Category> categoriesList;
-    private static CategoryManger categoryManger;
-    private static Context context;
+public class EmployeeManger implements AfterAsynchronous{
+    private static ArrayList<Users> employeesList;
+    private static EmployeeManger employeeManger;
     private AfterPraseResult view;
-    public  static CategoryManger getInstance(Context c){
-        if(categoryManger==null)
+    private static Context context;
+    public  static EmployeeManger getInstance(Context c){
+        if(employeeManger==null)
         {
             context=c;
-         categoryManger=new CategoryManger();
+            employeeManger=new EmployeeManger();
         }
-            return categoryManger;
+        return employeeManger;
     }
 
-    public void getCategoriesList(AfterPraseResult view){
+    public void getEmployeesList(AfterPraseResult view){
         this.view=view;
-        if(categoriesList==null){
-            String categoryURL= URLManager.getCategoryURL;
+        if(employeesList==null){
+            String employeeURL= URLManager.getEmployeesURL;
             HttpClientConn loginConnection = new HttpClientConn(this, context);
             RequestParams requestParam = new RequestParams();
-            loginConnection.RequestService(categoryURL, requestParam, 1, null, 1);
+            loginConnection.RequestService(employeeURL, requestParam, 1, null, 1);
         }else {
-            this.view.afterParesResult(categoriesList);
+            this.view.afterParesResult(employeesList);
         }
     }
 
@@ -53,18 +53,17 @@ public class CategoryManger implements AfterAsynchronous{
         if (code==1){
             try {
                 JSONObject object=new JSONObject(message);
-                String myData =object.getString("categories");
+                String myData =object.getString("users");
                 JSONArray jsonArray=new JSONArray(myData);
-                categoriesList=new ArrayList<>();
+                employeesList=new ArrayList<>();
                 for (int i=0;i<jsonArray.length();i++) {
                     Gson gson = new Gson();
                     String element=jsonArray.getString(i);
-                    Category category = gson.fromJson(element, Category.class);
-                    Log.i("gsontest",category.getCategoryName());
-                    categoriesList.add(category);
+                    Users emoloyee = gson.fromJson(element, Users.class);
+                    Log.i("gsontest", emoloyee.getUserName());
+                    employeesList.add(emoloyee);
                 }
-                view.afterParesResult(categoriesList);
-
+                view.afterParesResult(employeesList);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

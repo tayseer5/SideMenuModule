@@ -12,8 +12,11 @@ import android.widget.TextView;
 
 import com.example.iti.sidemenumodule.R;
 import com.example.iti.sidemenumodule.model.Employee;
+import com.example.iti.sidemenumodule.model.Users;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Rehab El-Kasaby on 3/3/2016.
@@ -21,8 +24,8 @@ import java.util.ArrayList;
 public class EmployeeCustomAdapter extends ArrayAdapter {
 
     private final Activity context;
-    ArrayList<Employee> myDate;
-    public EmployeeCustomAdapter(Activity context, ArrayList<Employee> data) {
+    List<Users> myDate;
+    public EmployeeCustomAdapter(Activity context, ArrayList<Users> data) {
         super(context, R.layout.employee_single_row);
         this.context = context;
         myDate=data;
@@ -39,9 +42,12 @@ public class EmployeeCustomAdapter extends ArrayAdapter {
         ImageView imageView=(ImageView)rowView.findViewById(R.id.employee_image);
         RatingBar ratingBar=(RatingBar)rowView.findViewById(R.id.rating);
 
-        nameTextView.setText(myDate.get(position).getName());
-        titleTextView.setText(myDate.get(position).getTitle());
-        imageView.setImageResource(myDate.get(position).getImage());
+        nameTextView.setText(myDate.get(position).getUserName());
+        titleTextView.setText(myDate.get(position).getProfessinalTiltle());
+        Picasso.with(context)
+                .load(myDate.get(position).getUserImageUrl())
+                .placeholder(R.mipmap.employee_place_holder)
+                .into(imageView);
         ratingBar.setRating((float) myDate.get(position).getRate());
         return rowView;
 
@@ -50,5 +56,10 @@ public class EmployeeCustomAdapter extends ArrayAdapter {
     @Override
     public int getCount() {
         return myDate.size();
+    }
+
+
+    public List<Users> getData() {
+        return myDate;
     }
 }

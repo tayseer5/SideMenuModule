@@ -122,7 +122,7 @@ public class HttpClientConn {
            // Log.i("ahmed", "ahmed");
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                Log.e("in ahmed", "not fail");
+                Log.e("ahmed", "onSuccess");
                 String response = new String(responseBody);
                 afterAsynchronous.afterExecute(response, code);
             }

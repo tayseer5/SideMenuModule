@@ -12,16 +12,19 @@ import android.widget.TextView;
 import com.example.iti.sidemenumodule.R;
 import com.example.iti.sidemenumodule.helperclasses.Farsi;
 import com.example.iti.sidemenumodule.model.Category;
+import com.example.iti.sidemenumodule.model.Users;
 import com.norbsoft.typefacehelper.TypefaceCollection;
 import com.norbsoft.typefacehelper.TypefaceHelper;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
 
-    private ArrayList<Category> dataSet;
+    private List<Category> dataSet;
     private Context context;
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -57,18 +60,19 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
         TextView textViewName = holder.textViewName;
         ImageView imageView = holder.imageViewIcon;
-        TypefaceCollection typeface=new TypefaceCollection.Builder()
-                .set(Typeface.NORMAL,Typeface.createFromAsset(context.getAssets(),"fonts/DroidKufi-Regular.ttf"))
-                .create();
-        TypefaceHelper.init(typeface);
-        //textViewName.setTypeface(typeface);
-       // textViewName.setText(dataSet.get(listPosition).getName());
-        textViewName.setText(context.getString(R.string.app_name));
-       // imageView.setImageResource(dataSet.get(listPosition).getImage());
+        textViewName.setText(dataSet.get(listPosition).getCategoryName());
+        Picasso.with(context)
+                .load(dataSet.get(listPosition).getImageOfCategoryUrl())
+                .placeholder(R.drawable.cat1)
+                .into(imageView);
     }
 
     @Override
     public int getItemCount() {
         return dataSet.size();
+    }
+
+    public List<Category> getData() {
+        return dataSet;
     }
 }

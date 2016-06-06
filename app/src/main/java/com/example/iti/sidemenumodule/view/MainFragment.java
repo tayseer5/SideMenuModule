@@ -1,13 +1,16 @@
 package com.example.iti.sidemenumodule.view;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +23,7 @@ import android.widget.TextView;
 
 import com.example.iti.sidemenumodule.R;
 import com.example.iti.sidemenumodule.daos.CategoryManger;
+import com.example.iti.sidemenumodule.daos.EmployeeManger;
 import com.example.iti.sidemenumodule.datamanger.DataManger;
 import com.example.iti.sidemenumodule.helperclasses.MyData;
 import com.example.iti.sidemenumodule.model.Category;
@@ -33,19 +37,19 @@ import java.util.ArrayList;
 /**
  * Created by Ahmed_telnet on 5/21/2016.
  */
-public class MainFragment extends Fragment implements AfterPraseResult{
+public class MainFragment extends Fragment implements AfterPraseResult {
 
 
-
-    private static RecyclerView.Adapter adapter;
+    private static CustomAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
     private static ArrayList<Category> data;
     static View.OnClickListener myOnClickListener;
     private static ArrayList<Integer> removedItems;
+    ProgressDialog progress;
     FragmentActivity myContext;
     private static final String FRAGMENT_FLAG = "FRAGMENT_FLAG";
-    static Bundle mBundle ;
+    static Bundle mBundle;
 
     public static MainFragment newInstance(int flag) {
         MainFragment mFragment = new MainFragment();
@@ -59,7 +63,7 @@ public class MainFragment extends Fragment implements AfterPraseResult{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-//           Log.e("save instance",mBundle.getString(FRAGMENT_FLAG)+"");
+        data = new ArrayList<>();
 
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
@@ -72,16 +76,21 @@ public class MainFragment extends Fragment implements AfterPraseResult{
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         data = DataManger.getcategories();
         removedItems = new ArrayList<Integer>();
+
+        progress = new ProgressDialog(myContext,R.style.MyTheme);
+        progress.setCancelable(false);
+        progress.show();
+        CategoryManger categoryManger = CategoryManger.getInstance(myContext);
+        categoryManger.getCategoriesList(this);
         adapter = new CustomAdapter(myContext, data);
         recyclerView.setAdapter(adapter);
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        TypefaceCollection typeface=new TypefaceCollection.Builder()
-                .set(Typeface.NORMAL,Typeface.createFromAsset(myContext.getAssets(),"fonts/DroidKufi-Regular.ttf"))
+        TypefaceCollection typeface = new TypefaceCollection.Builder()
+                .set(Typeface.NORMAL, Typeface.createFromAsset(myContext.getAssets(), "fonts/DroidKufi-Regular.ttf"))
                 .set(Typeface.BOLD, Typeface.createFromAsset(myContext.getAssets(), "fonts/DroidKufi-Bold.ttf"))
                 .create();
         TypefaceHelper.init(typeface);
-        CategoryManger categoryManger=CategoryManger.getInstance(myContext);
-        categoryManger.getCategoriesList();
+
         return rootView;
     }
 
@@ -98,13 +107,29 @@ public class MainFragment extends Fragment implements AfterPraseResult{
         setHasOptionsMenu(true);
     }
 
-    @Override
-    public void afterParesResult(Message message, int code) {
 
+    @Override
+    public void afterParesResult(ArrayList list) {
+        data=list;
+        adapter.getData().clear();
+        adapter.getData().addAll(data);
+        // fire the event
+        adapter.notifyDataSetChanged();
+        progress.dismiss();
     }
 
     @Override
     public void errorParesResult(String errorMessage) {
+        AlertDialog alertDialog = new AlertDialog.Builder(myContext).create();
+        alertDialog.setTitle(getString(R.string.alert));
+        alertDialog.setMessage(getString(R.string.error_message));
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
 
     }
 
@@ -142,12 +167,9 @@ public class MainFragment extends Fragment implements AfterPraseResult{
         private void moveToProductFragment(int selectedItemId) {
             Fragment mFragment = null;
             FragmentManager mFragmentManager = myContext.getSupportFragmentManager();
-            if(mBundle.getInt(FRAGMENT_FLAG)==1)
-            {
+            if (mBundle.getInt(FRAGMENT_FLAG) == 1) {
                 mFragment = new requestProductFragment(selectedItemId);
-            }
-            else
-            {
+            } else {
                 mFragment = new PortfoliosFragment(selectedItemId);
             }
             if (mFragment != null) {
