@@ -15,7 +15,7 @@ import com.example.iti.sidemenumodule.R;
 import com.example.iti.sidemenumodule.controller.ProfileActivity;
 import com.example.iti.sidemenumodule.controller.ProtoflioActivity;
 import com.example.iti.sidemenumodule.model.Portfolio;
-import com.example.iti.sidemenumodule.model.User;
+import com.example.iti.sidemenumodule.model.Users;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,13 +25,13 @@ public class ProfileFragment extends Fragment {
 
     View rootView;
     FragmentActivity myContext;
-    User user;
+    Users user;
     Button portfolioButton;
     public ProfileFragment() {
         // Required empty public constructor
     }
 
-    public ProfileFragment(User user) {
+    public ProfileFragment(Users user) {
         this.user=user;
     }
 

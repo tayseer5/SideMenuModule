@@ -62,4 +62,5 @@
     <string name="portDescription">وصف للعمل</string>
     <string name="portfolio_information">أعرض افضل اعمالك</string>
     <string name="add_photos">أضف صوره او مجموعه صور لعملك</string>
+    <string name="show_profile">ملفك الشخصي</string>
 </resources>

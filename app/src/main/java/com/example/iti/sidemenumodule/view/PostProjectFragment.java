@@ -76,7 +76,7 @@ public class PostProjectFragment extends Fragment{
             }
         });
         categoryList=DataManger.getcategories();
-        categoryNames=getCategoryNames();
+        //categoryNames=getCategoryNames();
         categorySpinner = (Spinner) rootView.findViewById(R.id.category_spinner);
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, categoryNames);
         categorySpinner.setAdapter(adapter1);
@@ -84,7 +84,8 @@ public class PostProjectFragment extends Fragment{
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1, int pos, long arg3) {
                 String categoryName = categorySpinner.getSelectedItem().toString();
-                int categoryId = getCategoryIdByName(categoryName);
+//                int categoryId = getCategoryIdByName(categoryName);
+                int categoryId=1;
                 if (categoryId != -1) {
                     project.setCategory(categoryId);
                 }
@@ -105,24 +106,24 @@ public class PostProjectFragment extends Fragment{
         super.onAttach(activity);
     }
 
-    private String[] getCategoryNames()
-    {
-        String[] names=new String[categoryList.size()];
-        for(int i=0;i<categoryList.size();i++)
-        {
-            names[i]=categoryList.get(i).getName();
-        }
-        return names;
-    }
-    private int getCategoryIdByName(String name)
-    {
-        for(int i=0;i<categoryList.size();i++)
-        {
-           if(categoryList.get(i).getName().equals(name))
-           {
-               return categoryList.get(i).getId();
-           }
-        }
-        return -1;
-    }
+//    private String[] getCategoryNames()
+//    {
+//        String[] names=new String[categoryList.size()];
+//        for(int i=0;i<categoryList.size();i++)
+//        {
+//            names[i]=categoryList.get(i).getName();
+//        }
+//        return names;
+//    }
+//    private int getCategoryIdByName(String name)
+//    {
+//        for(int i=0;i<categoryList.size();i++)
+//        {
+//           if(categoryList.get(i).getName().equals(name))
+//           {
+//               return categoryList.get(i).getId();
+//           }
+//        }
+//        return -1;
+//    }
 }

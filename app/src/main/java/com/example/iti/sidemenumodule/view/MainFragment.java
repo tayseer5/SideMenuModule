@@ -19,9 +19,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.iti.sidemenumodule.R;
+import com.example.iti.sidemenumodule.daos.CategoryManger;
 import com.example.iti.sidemenumodule.datamanger.DataManger;
 import com.example.iti.sidemenumodule.helperclasses.MyData;
 import com.example.iti.sidemenumodule.model.Category;
+import com.example.iti.sidemenumodule.model.Message;
+import com.example.iti.sidemenumodule.network_manager.AfterPraseResult;
 import com.norbsoft.typefacehelper.TypefaceCollection;
 import com.norbsoft.typefacehelper.TypefaceHelper;
 
@@ -30,7 +33,7 @@ import java.util.ArrayList;
 /**
  * Created by Ahmed_telnet on 5/21/2016.
  */
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements AfterPraseResult{
 
 
 
@@ -77,6 +80,8 @@ public class MainFragment extends Fragment {
                 .set(Typeface.BOLD, Typeface.createFromAsset(myContext.getAssets(), "fonts/DroidKufi-Bold.ttf"))
                 .create();
         TypefaceHelper.init(typeface);
+        CategoryManger categoryManger=CategoryManger.getInstance(myContext);
+        categoryManger.getCategoriesList();
         return rootView;
     }
 
@@ -91,6 +96,16 @@ public class MainFragment extends Fragment {
         // TODO Auto-generated method stub
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void afterParesResult(Message message, int code) {
+
+    }
+
+    @Override
+    public void errorParesResult(String errorMessage) {
+
     }
 
 

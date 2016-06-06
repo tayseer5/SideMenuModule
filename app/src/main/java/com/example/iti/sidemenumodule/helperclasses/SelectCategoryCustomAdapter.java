@@ -34,7 +34,7 @@ public class SelectCategoryCustomAdapter extends ArrayAdapter {
         LayoutInflater inflater=context.getLayoutInflater();
         View rowView= inflater.inflate(R.layout.select_category_single_row, parent, false);
         TextView nameTextView=(TextView)rowView.findViewById(R.id.category_name_textview);
-        nameTextView.setText(myDate.get(position).getName());
+        nameTextView.setText(myDate.get(position).getCategoryName());
         return rowView;
 
     }

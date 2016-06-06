@@ -46,7 +46,7 @@ public class UserManager implements AfterAsynchronous {
         loginConnection.RequestService(URLManager.imageURL,requestParam,1,null,0);
     }
     @Override
-    public void afterExecute(Message message, int code) {
+    public void afterExecute(String message, int code) {
         switch (code)
         {
             case 0:
@@ -60,7 +60,7 @@ public class UserManager implements AfterAsynchronous {
                 break;
             case 3:
                 //test upload image
-                UploadPhotoProcess(message);
+               // UploadPhotoProcess(message);
                 break;
             default:
                 break;

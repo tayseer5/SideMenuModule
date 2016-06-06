@@ -64,8 +64,9 @@ public class SelectCategoryFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                int selectedItemId = data.get(position).getId();
-                Portfolio portfolio = new Portfolio();
+//                int selectedItemId = data.get(position).getId();
+                int selectedItemId =1;
+                        Portfolio portfolio = new Portfolio();
                 portfolio.setCategoryId(selectedItemId);
                 android.support.v4.app.Fragment fragment = new AddPortfolioItemFragment(portfolio);
                 FragmentManager manager = myContext.getSupportFragmentManager();

@@ -17,6 +17,7 @@ import android.view.View;
 import com.example.iti.sidemenumodule.view.EmployeeListFragment;
 import com.example.iti.sidemenumodule.view.MainFragment;
 import com.example.iti.sidemenumodule.R;
+import com.example.iti.sidemenumodule.view.MyProjectListFragment;
 import com.example.iti.sidemenumodule.view.RegistrationActivity;
 import com.example.iti.sidemenumodule.view.UploadImageActivity;
 import com.example.iti.sidemenumodule.view.WorkStreamFragment;
@@ -36,20 +37,16 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
 
     @Override
     public void onInt(Bundle bundle) {
-        Intent test = new Intent(this, UploadImageActivity.class);
-        startActivity(test);
-
         Log.e("in init", "yes");
 
 //Menu Elements
         mHelpLiveo = new HelpLiveo();
-        mHelpLiveo.add(getString(R.string.homepage), R.drawable.ic_android_black_24dp);
+        mHelpLiveo.add(getString(R.string.homepage), R.mipmap.home);
        // mHelpLiveo.addSeparator(); // Item separator
-        mHelpLiveo.add(getString(R.string.dash_board), R.drawable.ic_https_black_24dp);
+        mHelpLiveo.add(getString(R.string.dash_board), R.mipmap.work_flow);
+        mHelpLiveo.add(getString(R.string.show_profile), R.mipmap.briefcase);
         mHelpLiveo.add(getString(R.string.post_project), R.drawable.ic_https_black_24dp);
         mHelpLiveo.add(getString(R.string.customer_project), R.drawable.ic_https_black_24dp);
-        mHelpLiveo.add(getString(R.string.jop_search), R.drawable.ic_https_black_24dp);
-        mHelpLiveo.add(getString(R.string.search_about_handCraft), R.drawable.ic_https_black_24dp);
 
         //is not login
         if(IsNotLogin())
@@ -107,13 +104,10 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
                 Intent postProjectIntent = new Intent(this,PostProjectMainActivity.class);
                 startActivity(postProjectIntent);
                 break;
+            case 3:
+                mFragment=new MyProjectListFragment();
+                break;
             case 4:
-                mFragment=new WorkStreamFragment();
-                break;
-            case 5:
-                mFragment = new EmployeeListFragment();
-                break;
-            case 6:
                 if (IsNotLogin())
                 {
                     Intent intent = new Intent(this,RegistrationActivity.class);
@@ -140,6 +134,7 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
         toolbar.setBackgroundColor(getResources().getColor(R.color.light_green));
         toolbar.setElevation((float) 0.0);
         toolbar.setTitleTextColor(getResources().getColor(R.color.light_gray));
+        toolbar.inflateMenu(R.menu.menu_protoflio);
 //        TypefaceHelper.typeface(this);
         TypefaceCollection typeface=new TypefaceCollection.Builder()
                 .set(Typeface.NORMAL,Typeface.createFromAsset(getAssets(),"fonts/DroidKufi-Regular.ttf"))

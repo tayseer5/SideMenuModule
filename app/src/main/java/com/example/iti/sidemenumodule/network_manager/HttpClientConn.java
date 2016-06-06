@@ -88,17 +88,7 @@ public class HttpClientConn {
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 Log.e("in scress", "not fail");
                 String response = new String(responseBody);
-                message = parseResult(response);
-                if (message != null) {
-                    Log.e("not null", message.getCode() + "");
-                    Log.e("not null", message.toString());
-                    Log.e("not null", message.getMsg());
-                    afterAsynchronous.afterExecute(message, code);
-                } else {
-                    message = new Message();
-                    message.setCode(600);
-                    message.setMsg(response);
-                }
+                afterAsynchronous.afterExecute(response, code);
             }
 
             @Override
@@ -129,22 +119,12 @@ public class HttpClientConn {
         HttpEntity httpEntity= null;
         client.get(context, URL, new AsyncHttpResponseHandler() {
             Message message;
-
+           // Log.i("ahmed", "ahmed");
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                Log.e("in scress", "not fail");
+                Log.e("in ahmed", "not fail");
                 String response = new String(responseBody);
-                message = parseResult(response);
-                if (message != null) {
-                    Log.e("not null", message.getCode() + "");
-                    Log.e("not null", message.toString());
-                    Log.e("not null", message.getMsg());
-                    afterAsynchronous.afterExecute(message, code);
-                } else {
-                    message = new Message();
-                    message.setCode(600);
-                    message.setMsg(response);
-                }
+                afterAsynchronous.afterExecute(response, code);
             }
 
             @Override
