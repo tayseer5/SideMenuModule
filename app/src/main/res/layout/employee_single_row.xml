@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:padding="4dp"
+    android:elevation="2dp"
     android:layout_gravity="center"
     android:background="#fff">
 
@@ -14,7 +15,9 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_margin="8dp"
-        android:src="@mipmap/employee_place_holder"/>
+        android:src="@mipmap/employee_place_holder"
+        app:civ_border_width="1dp"
+        app:civ_border_color="#FF000000"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

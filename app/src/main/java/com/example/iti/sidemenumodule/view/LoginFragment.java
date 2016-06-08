@@ -19,13 +19,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.iti.sidemenumodule.R;
+import com.example.iti.sidemenumodule.daos.UserManager;
+import com.example.iti.sidemenumodule.network_manager.AfterPraseResult;
 
-public class LoginFragment extends Fragment  {
+public class LoginFragment extends Fragment  implements AfterPraseResult{
     View rootView;
     EditText mail;
     EditText password;
-
-    TextView href;
     public LoginFragment() {
 
     }
@@ -41,28 +41,11 @@ public class LoginFragment extends Fragment  {
         rootView = inflater.inflate(R.layout.login_fragment, container, false);
         mail= (EditText) rootView.findViewById(R.id.loginEmail);
         password= (EditText) rootView.findViewById(R.id.loginPassword);
-        href= (TextView) rootView.findViewById(R.id.forgetPasswordURL);
-        href.setText(Html.fromHtml("<a href=http://www.stackoverflow.com> STACK OVERFLOW "));
-        href.setMovementMethod(LinkMovementMethod.getInstance());
         Button loginButton = (Button) rootView.findViewById(R.id.login_bt);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedpreferences = getActivity().getSharedPreferences("loginPrefrence", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-
-                if (mail.getText().toString().contentEquals("tayseer"))
-                {
-                    Log.e("same", "userName");
-                    editor.putString("mail", mail.getText().toString());
-                    editor.commit();
-                }
-                if (password.getText().toString().contentEquals("123"))
-                {
-                    Log.e("same","password");
-                    String isLogin = sharedpreferences.getString("mail","Not login");
-                    Log.e("is register",isLogin);
-                }
+                LoginProcess();
             }
         });
         CheckBox showPasswordCheckBox = (CheckBox) rootView.findViewById(R.id.showPasswordCheckBox);
@@ -81,5 +64,36 @@ public class LoginFragment extends Fragment  {
             }
         });
         return rootView;
+    }
+
+    private void LoginProcess() {
+        UserManager userManager = new UserManager(this.getActivity(),this);
+        userManager.Login(mail.getText().toString(),password.getText().toString());
+//        SharedPreferences sharedpreferences = getActivity().getSharedPreferences("loginPrefrence", Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedpreferences.edit();
+//
+//        if (mail.getText().toString().contentEquals("tayseer"))
+//        {
+//            Log.e("same", "userName");
+//            editor.putString("mail", mail.getText().toString());
+//            editor.commit();
+//        }
+//        if (password.getText().toString().contentEquals("123"))
+//        {
+//            Log.e("same","password");
+//            String isLogin = sharedpreferences.getString("mail","Not login");
+//            Log.e("is register",isLogin);
+//        }
+    }
+
+    @Override
+    public void afterParesResult(Object message, int code) {
+        Log.e("msg",message.toString());
+    }
+
+    @Override
+    public void errorParesResult(String errorMessage, int code) {
+        Log.e("errorMessage",errorMessage.toString());
+
     }
 }

@@ -1,15 +1,10 @@
 package com.example.iti.sidemenumodule.datamanger;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-
 import com.example.iti.sidemenumodule.helperclasses.MyData;
 import com.example.iti.sidemenumodule.model.Category;
 import com.example.iti.sidemenumodule.model.Employee;
-import com.example.iti.sidemenumodule.model.Portfolio;
 import com.example.iti.sidemenumodule.model.ProjectData;
-import com.example.iti.sidemenumodule.model.Users;
-
+import com.example.iti.sidemenumodule.model.Portfolio;
 
 import java.util.ArrayList;
 
@@ -21,11 +16,11 @@ public class DataManger {
     public static ArrayList<Category> getcategories() {
         ArrayList data = new ArrayList<Category>();
         for (int i = 0; i < MyData.nameArray.length; i++) {
-//            data.add(new Category(
-//                    MyData.nameArray[i],
-//                    MyData.id_[i],
-//                    MyData.drawableArray[i]
-//            ));
+            data.add(new Category(
+                    MyData.nameArray[i],
+                    MyData.id_[i],
+                    MyData.drawableArray[i]
+            ));
         }
 
         return data;
@@ -48,17 +43,6 @@ public class DataManger {
 
         return data;
     }
-
-    public static ArrayList<Portfolio> getPortfolios(Users user) {
-        ArrayList data = new ArrayList<Portfolio>();
-        for (int i = 0; i < MyData.nameArray.length*5; i++) {
-            data.add(new Portfolio(MyData.id_[i%2],MyData.nameArray[i%2],MyData.id_[i%2],MyData.drawableArrayPortfolio[i%2],MyData.id_[i%2]));
-        }
-
-        return data;
-    }
-
-
 
     public static ArrayList<ProjectData> getMyProjectData() {
         ArrayList data = new ArrayList<ProjectData>();

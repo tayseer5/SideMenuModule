@@ -3,13 +3,12 @@ package com.example.iti.sidemenumodule.controller;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -21,8 +20,6 @@ import com.example.iti.sidemenumodule.view.MyProjectListFragment;
 import com.example.iti.sidemenumodule.view.RegistrationActivity;
 import com.example.iti.sidemenumodule.view.UploadImageActivity;
 import com.example.iti.sidemenumodule.view.WorkStreamFragment;
-import com.norbsoft.typefacehelper.TypefaceCollection;
-import com.norbsoft.typefacehelper.TypefaceHelper;
 //import com.example.iti.sidemenumodule.view.WorkStreamFragment;
 
 import br.liveo.interfaces.OnItemClickListener;
@@ -33,20 +30,23 @@ import br.liveo.navigationliveo.NavigationLiveo;
 
 public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClickListener {
     private HelpLiveo mHelpLiveo;
-    private Toolbar toolbar;
 
     @Override
     public void onInt(Bundle bundle) {
-        Log.e("in init", "yes");
+//        Intent test = new Intent(this, UploadImageActivity.class);
+//        startActivity(test);
+//
+//        Log.e("in init", "yes");
 
 //Menu Elements
         mHelpLiveo = new HelpLiveo();
-        mHelpLiveo.add(getString(R.string.homepage), R.mipmap.home);
+        mHelpLiveo.add(getString(R.string.homepage), R.drawable.ic_android_black_24dp);
        // mHelpLiveo.addSeparator(); // Item separator
-        mHelpLiveo.add(getString(R.string.dash_board), R.mipmap.work_flow);
-        mHelpLiveo.add(getString(R.string.show_profile), R.mipmap.briefcase);
+        mHelpLiveo.add(getString(R.string.dash_board), R.drawable.ic_https_black_24dp);
         mHelpLiveo.add(getString(R.string.post_project), R.drawable.ic_https_black_24dp);
         mHelpLiveo.add(getString(R.string.customer_project), R.drawable.ic_https_black_24dp);
+        mHelpLiveo.add(getString(R.string.jop_search), R.drawable.ic_https_black_24dp);
+        mHelpLiveo.add(getString(R.string.search_about_handCraft), R.drawable.ic_https_black_24dp);
 
         //is not login
         if(IsNotLogin())
@@ -78,9 +78,8 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
         @Override
         public void onClick(View v) {
             Log.e("onClickPhoto","onClickPhoto");
-            Intent profileIntent = new Intent(ActicityWithSideMenu.this,ProfileActivity.class);
-            startActivity(profileIntent);
             closeDrawer();
+
         }
     };
     private OnPrepareOptionsMenuLiveo onPrepare = new OnPrepareOptionsMenuLiveo() {
@@ -98,16 +97,18 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
 
         switch (position){
             case 1:
-                mFragment = MainFragment.newInstance(1);
-                break;
-            case 2:
-                Intent postProjectIntent = new Intent(this,PostProjectMainActivity.class);
-                startActivity(postProjectIntent);
+                mFragment=new WorkStreamFragment();
                 break;
             case 3:
                 mFragment=new MyProjectListFragment();
                 break;
             case 4:
+                mFragment = MainFragment.newInstance(1);
+                break;
+            case 5:
+                mFragment = new EmployeeListFragment();
+                break;
+            case 6:
                 if (IsNotLogin())
                 {
                     Intent intent = new Intent(this,RegistrationActivity.class);
@@ -121,26 +122,15 @@ public class ActicityWithSideMenu extends NavigationLiveo implements OnItemClick
                 }
                 break;
             default:
-              //  mFragment = MainFragment.newInstance(0);
-                mFragment =new SimpleTabsActivity();
+                mFragment = MainFragment.newInstance(0);
                 break;
         }
 
         if (mFragment != null){
             mFragmentManager.beginTransaction().replace(R.id.container, mFragment).commit();
         }
-        toolbar=getToolbar();
 
-        toolbar.setBackgroundColor(getResources().getColor(R.color.light_green));
-        toolbar.setElevation((float) 0.0);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.light_gray));
-        toolbar.inflateMenu(R.menu.menu_protoflio);
-//        TypefaceHelper.typeface(this);
-        TypefaceCollection typeface=new TypefaceCollection.Builder()
-                .set(Typeface.NORMAL,Typeface.createFromAsset(getAssets(),"fonts/DroidKufi-Regular.ttf"))
-                .set(Typeface.BOLD, Typeface.createFromAsset(getAssets(), "fonts/DroidKufi-Bold.ttf"))
-                .create();
-        TypefaceHelper.init(typeface);
+        setElevationToolBar(position != 2 ? 15 : 0);
     }
     private boolean IsNotLogin()
     {

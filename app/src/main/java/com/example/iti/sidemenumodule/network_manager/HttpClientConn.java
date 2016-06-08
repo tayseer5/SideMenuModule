@@ -22,21 +22,22 @@ import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.HttpEntity;
 
 public class HttpClientConn {
-
-
-
     RequestParams requestParams;
     String URL;
     int code;
-    Header[] header = null;
     String contentType;
     AfterAsynchronous afterAsynchronous;
     private AsyncHttpClient client = new AsyncHttpClient();
     Context context;
 
     public HttpClientConn(AfterAsynchronous afterAsynchronous, Context context) {
-
-        this.afterAsynchronous = afterAsynchronous;
+        try {
+            this.afterAsynchronous = afterAsynchronous;
+        } catch (ClassCastException e) {
+            // The activity doesn't implement the interface, throw exception
+            throw new ClassCastException(context.toString()
+                    + " must implement AfterAsynchronous interface");
+        }
         this.context = context;
     }
 
@@ -56,8 +57,14 @@ public class HttpClientConn {
             switch (connectionType) {
                 case 0:
                     //post
-                    this.requestParams = requestParam;
+                    if (requestParam==null)
+                    {
+                        networkConnectionPostWithoutRequestParam();
+                    }
+                    else {
+                        this.requestParams = requestParam;
                         networkConnectionPost();
+                    }
 
                     break;
                 case 1:
@@ -81,14 +88,15 @@ public class HttpClientConn {
     }
 
     private void networkConnectionPost() {
-        client.post(context, URL, header, requestParams, contentType, new AsyncHttpResponseHandler() {
+        client.post(URL, requestParams, new AsyncHttpResponseHandler() {
             Message message;
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 Log.e("in scress", "not fail");
                 String response = new String(responseBody);
-                afterAsynchronous.afterExecute(response, code);
+                Log.e("in scress", response);
+                afterAsynchronous.afterExecute(response,code);
             }
 
             @Override
@@ -96,10 +104,42 @@ public class HttpClientConn {
                 Log.e("in fail getMessage()", error.getMessage());
                 Log.e("in fail", error.getLocalizedMessage());
                 Log.e("in fail headers", headers[0] + "");
-                Log.e("in fail headers", headers[1] + "");
-                Log.e("in fail headers", headers[2] + "");
                 Log.e("in fail responseBody", new String(responseBody));
-                afterAsynchronous.afterExecute(null, code);
+                afterAsynchronous.errorInExecute(error.getMessage());
+
+            }
+
+            @Override
+            public void onStart() {
+                Log.e("in start", "started");
+
+            }
+
+            @Override
+            public void onRetry(int retryNo) {
+
+            }
+        });
+    }
+    private void networkConnectionPostWithoutRequestParam() {
+        client.post(URL, new AsyncHttpResponseHandler() {
+            Message message;
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                Log.e("in scress", "not fail");
+                String response = new String(responseBody);
+                Log.e("in scress", response);
+                afterAsynchronous.afterExecute(response,code);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                Log.e("in fail getMessage()", error.getMessage());
+                Log.e("in fail", error.getLocalizedMessage());
+                Log.e("in fail headers", headers[0] + "");
+                Log.e("in fail responseBody", new String(responseBody));
+                afterAsynchronous.errorInExecute(error.getMessage());
 
             }
 
@@ -119,23 +159,20 @@ public class HttpClientConn {
         HttpEntity httpEntity= null;
         client.get(context, URL, new AsyncHttpResponseHandler() {
             Message message;
-           // Log.i("ahmed", "ahmed");
+
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                Log.e("ahmed", "onSuccess");
+                Log.e("in scress", "not fail");
                 String response = new String(responseBody);
-                afterAsynchronous.afterExecute(response, code);
+                    afterAsynchronous.afterExecute(response, code);
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                Log.e("in fail getMessage()", error.getMessage());
-                Log.e("in fail", error.getLocalizedMessage());
-                Log.e("in fail headers", headers[0] + "");
-                Log.e("in fail headers", headers[1] + "");
-                Log.e("in fail headers", headers[2] + "");
+                Log.e("in fail getMessage()", error+"");
+                Log.e("in fail headers", headers + "");
                 Log.e("in fail responseBody", new String(responseBody));
-                afterAsynchronous.afterExecute(null, code);
+                afterAsynchronous.errorInExecute(error.getMessage());
 
             }
 
@@ -152,23 +189,6 @@ public class HttpClientConn {
         });
     }
 
-    private Message parseResult(String responsesFromAsy) {
-        Message message;
-        try {
-            Log.e("res", responsesFromAsy);
-            JSONObject response = new JSONObject(responsesFromAsy);
-            message = new Message();
-            int coderes = response.getInt("code");
-            message.setCode(coderes);
-            String data = response.getString("data");
-            message.setMsg(data);
-        } catch (JSONException e) {
-
-            message = null;
-            e.printStackTrace();
-        }
-        return message;
-    }
 
 
 }

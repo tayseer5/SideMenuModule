@@ -10,6 +10,4 @@ public class requestProductFragment extends Fragment {
 
 
     }
-
-
 }

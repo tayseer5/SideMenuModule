@@ -10,21 +10,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.iti.sidemenumodule.R;
-import com.example.iti.sidemenumodule.helperclasses.Farsi;
 import com.example.iti.sidemenumodule.model.Category;
-import com.example.iti.sidemenumodule.model.Users;
-import com.norbsoft.typefacehelper.TypefaceCollection;
-import com.norbsoft.typefacehelper.TypefaceHelper;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
 
-    private List<Category> dataSet;
+    private ArrayList<Category> dataSet;
+    private String fontPath = "fonts/NotoNaskhArabic-Regular.ttf";
     private Context context;
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -59,20 +54,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public void onBindViewHolder(final MyViewHolder holder, final int listPosition) {
 
         TextView textViewName = holder.textViewName;
+        Typeface tf = Typeface.createFromAsset(context.getAssets(), fontPath);
+        textViewName.setTypeface(tf);
         ImageView imageView = holder.imageViewIcon;
-        textViewName.setText(dataSet.get(listPosition).getCategoryName());
-        Picasso.with(context)
-                .load(dataSet.get(listPosition).getImageOfCategoryUrl())
-                .placeholder(R.drawable.cat1)
-                .into(imageView);
+        textViewName.setText(dataSet.get(listPosition).getName());
+        imageView.setImageResource(dataSet.get(listPosition).getImage());
     }
 
     @Override
     public int getItemCount() {
         return dataSet.size();
-    }
-
-    public List<Category> getData() {
-        return dataSet;
     }
 }

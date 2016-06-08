@@ -1,5 +1,7 @@
 package com.example.iti.sidemenumodule.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by ITI on 04/06/2016.
  */
@@ -17,9 +19,19 @@ public class Users {
     private String city;
     private String street;
     private String summery;
+
+    public ArrayList<Skills> getUserSkills() {
+        return userSkills;
+    }
+
+    public void setUserSkills(ArrayList<Skills> userSkills) {
+        this.userSkills = userSkills;
+    }
+
     private String professinalTiltle;
     private String identefire;
     private String token;
+    private ArrayList<Skills> userSkills;
 
     public String getUserEmail() {
         return userEmail;

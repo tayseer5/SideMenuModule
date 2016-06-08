@@ -9,7 +9,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,7 +39,6 @@ public class PortfoliosFragment extends Fragment {
     FragmentActivity myContext;
     private static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
     int catId;
-   static boolean flag=false;
 
 
     public static PortfoliosFragment newInstance(String text,int id){
@@ -62,12 +60,7 @@ public class PortfoliosFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new MarginDecoration(myContext));
         recyclerView.setLayoutManager(new GridLayoutManager(myContext, 2));
-        if(flag) {
-            //edit it to accept user comming from constractor
-            data = DataManger.getPortfolios(null);
-        }else {
-            data = DataManger.getPortfolios(catId);
-        }
+        data=DataManger.getPortfolios(catId);
         adapter = new PortfolioCustomAdapter(myContext, data);
         recyclerView.setAdapter(adapter);
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT ));
@@ -81,9 +74,7 @@ public class PortfoliosFragment extends Fragment {
     }
 
     public PortfoliosFragment()
-    {
-        flag=true;
-    }
+    {}
     @Override
     public void onAttach(Activity activity) {
         myContext=(FragmentActivity)activity;

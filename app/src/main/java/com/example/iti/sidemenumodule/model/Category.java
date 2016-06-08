@@ -4,37 +4,26 @@ package com.example.iti.sidemenumodule.model;
 public class Category {
 
 
-    private Integer categoryId;
-    private String categoryName;
-    private String imageOfCategoryUrl;
+    String name;
+    int id_;
+    int image;
 
-    public Category(Integer categoryId, String imageOfCategoryUrl, String categoryName) {
-        this.categoryId = categoryId;
-        this.imageOfCategoryUrl = imageOfCategoryUrl;
-        this.categoryName = categoryName;
+
+    public Category(String name, int id_, int image) {
+        this.name = name;
+        this.id_ = id_;
+        this.image=image;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+
+    public String getName() {
+        return name;
+    }
+    public int getImage() {
+        return image;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public String getImageOfCategoryUrl() {
-        return imageOfCategoryUrl;
-    }
-
-    public void setImageOfCategoryUrl(String imageOfCategoryUrl) {
-        this.imageOfCategoryUrl = imageOfCategoryUrl;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public int getId() {
+        return id_;
     }
 }

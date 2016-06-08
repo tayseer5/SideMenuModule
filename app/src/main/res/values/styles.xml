@@ -6,33 +6,16 @@
             <item name="colorPrimaryDark">@color/nliveo_blue_colorPrimaryDark</item>
             <item name="colorAccent">@color/nliveo_blue_colorPrimaryDark</item>
     </style>
+    <!-- Base application theme. -->
+    <style name="themeWithActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/nliveo_blue_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/nliveo_blue_colorPrimaryDark</item>
+        <item name="colorAccent">@color/nliveo_blue_colorPrimaryDark</item>
+    </style>
     <style name="nLiveoDrawer" parent="Theme.nLiveo">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/nliveo_green_alpha_colorPrimaryDark</item>
         <item name="colorPrimaryDark">@color/nliveo_orange_alpha_colorPrimaryDark</item>
         <item name="colorAccent">@color/nliveo_red_colorPrimary</item>
-    </style>
-
-    <style name="MyTheme" parent="android:Theme.Holo.Dialog">
-        <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
-        <item name="android:windowBackground">@color/transparent</item>
-        <item name="android:textColorPrimary">#FFFFFF</item>
-        <item name="android:backgroundDimEnabled">false</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">12sp</item>
-    </style>
-
-    <style name="CustomAlertDialogStyle">
-        <item name="android:bottomBright">@color/transparent</item>
-        <item name="android:bottomDark">@color/transparent</item>
-        <item name="android:bottomMedium">@color/transparent</item>
-        <item name="android:centerBright">@color/transparent</item>
-        <item name="android:centerDark">@color/transparent</item>
-        <item name="android:centerMedium">@color/transparent</item>
-        <item name="android:fullBright">@color/transparent</item>
-        <item name="android:fullDark">@color/transparent</item>
-        <item name="android:topBright">@color/transparent</item>
-        <item name="android:topDark">@color/transparent</item>
     </style>
 </resources>

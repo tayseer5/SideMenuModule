@@ -4,11 +4,9 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:nestedScrollingEnabled="false">
-
-
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <EditText
         android:layout_width="match_parent"
@@ -18,7 +16,7 @@
         android:layout_marginBottom="25dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:hint="Email" />
+        android:hint="@string/yourEmail" />
 
     <EditText
         android:layout_width="match_parent"
@@ -27,8 +25,7 @@
         android:layout_marginBottom="25dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:hint="Password"
-        android:password="true" />
+        android:hint="@string/password" />
 
     <EditText
         android:layout_width="match_parent"
@@ -37,28 +34,38 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="25dp"
-        android:hint="Re Password" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Agree terms of Services"
-        android:id="@+id/checkBox"
-        android:layout_marginBottom="25dp"
-        android:layout_marginLeft="10dp" />
+        android:hint="@string/RePassword" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign up"
-        android:id="@+id/button2"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/choiseYourSkills"
+        android:id="@+id/choiseSkills" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AgreeTearmsOfServices"
+        android:id="@+id/ruleAgreecheckBox"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sigin_up"
+        android:id="@+id/sigin_up_button"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show terms of services"
+        android:text="@string/Show_terms_of_services"
         android:id="@+id/textView3"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

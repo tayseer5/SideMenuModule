@@ -23,7 +23,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import com.example.iti.sidemenumodule.R;
+import com.example.iti.sidemenumodule.daos.UserManager;
 import com.example.iti.sidemenumodule.helperclasses.Utility;
+import com.example.iti.sidemenumodule.model.Users;
 import com.github.mikephil.charting.utils.Utils;
 
 import java.io.ByteArrayOutputStream;
@@ -50,9 +52,10 @@ public class UploadImageActivity extends ActionBarActivity {
             bt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    boolean result = Utility.checkPermission(UploadImageActivity.this);
-                    if (result)
-                        imageIntent();
+
+//                    boolean result = Utility.checkPermission(UploadImageActivity.this);
+//                    if (result)
+//                        imageIntent();
                 }
             });
         }
